@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tryed — Real accounts. Real people. Products that actually deliver.</title>
+<meta name="description" content="Tryed collects real user accounts and experiences to help you find products that actually work. Hair care, skincare, makeup and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #f5f0e8;
+  --cream2: #ede7d9;
+  --ink: #1a1612;
+  --ink2: #3d3630;
+  --muted: #8c8278;
+  --accent: #c4622d;
+  --accent2: #a34e22;
+  --green: #4a7c59;
+  --border: #d9d0c0;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', sans-serif;
+  --mono: 'DM Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* HEADER */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  background: var(--cream);
+  position: sticky; top: 0; z-index: 100;
+}
+.header-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.logo {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.logo span { color: var(--accent); }
+.nav { display: flex; gap: 28px; align-items: center; }
+.nav a {
+  font-size: 13px; font-weight: 400;
+  color: var(--ink2); text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: color .15s;
+}
+.nav a:hover { color: var(--accent); }
+.nav-search {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--cream2); border: 1px solid var(--border);
+  border-radius: 100px; padding: 7px 14px;
+}
+.nav-search input {
+  background: none; border: none; outline: none;
+  font-family: var(--sans); font-size: 13px;
+  color: var(--ink); width: 180px;
+}
+.nav-search input::placeholder { color: var(--muted); }
+.nav-search svg { color: var(--muted); flex-shrink: 0; }
+
+/* HERO */
+.hero {
+  max-width: 1200px; margin: 0 auto;
+  padding: 80px 40px 60px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: center;
+}
+.hero-text {}
+.hero-eyebrow {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--accent); text-transform: uppercase;
+  letter-spacing: 0.15em; margin-bottom: 16px;
+}
+.hero-title {
+  font-family: var(--serif); font-size: 52px;
+  font-weight: 700; line-height: 1.1;
+  color: var(--ink); margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+.hero-title em { color: var(--accent); font-style: italic; }
+.hero-sub {
+  font-size: 16px; color: var(--ink2);
+  line-height: 1.7; margin-bottom: 32px;
+  max-width: 440px;
+}
+.hero-search {
+  display: flex; gap: 0;
+  border: 1.5px solid var(--ink); border-radius: 4px;
+  overflow: hidden; max-width: 440px;
+}
+.hero-search input {
+  flex: 1; padding: 14px 18px;
+  font-family: var(--sans); font-size: 14px;
+  border: none; outline: none;
+  background: white; color: var(--ink);
+}
+.hero-search button {
+  padding: 14px 24px;
+  background: var(--ink); color: var(--cream);
+  font-family: var(--sans); font-size: 13px;
+  font-weight: 500; border: none; cursor: pointer;
+  transition: background .15s; letter-spacing: 0.03em;
+}
+.hero-search button:hover { background: var(--accent); }
+.hero-right {
+  position: relative;
+}
+.hero-card-stack { position: relative; height: 340px; }
+.hero-card {
+  position: absolute;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.hero-card:nth-child(1) { top: 0; left: 40px; transform: rotate(-2deg); }
+.hero-card:nth-child(2) { top: 60px; left: 120px; transform: rotate(1.5deg); z-index: 2; }
+.hero-card:nth-child(3) { top: 30px; left: 200px; transform: rotate(-1deg); z-index: 1; }
+.hero-card-tag {
+  font-family: var(--mono); font-size: 9px;
+  color: var(--accent); text-transform: uppercase;
+  letter-spacing: 0.1em; margin-bottom: 8px;
+}
+.hero-card-title {
+  font-family: var(--serif); font-size: 14px;
+  font-weight: 700; margin-bottom: 8px; line-height: 1.3;
+}
+.hero-card-text {
+  font-size: 12px; color: var(--ink2); line-height: 1.5;
+}
+.hero-card-author {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.hero-card-avatar {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--cream2); display: flex;
+  align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 500; color: var(--muted);
+}
+.hero-card-name { font-size: 11px; color: var(--muted); }
+
+/* DIVIDER */
+.section-divider {
+  max-width: 1200px; margin: 0 auto;
+  border: none; border-top: 1px solid var(--border);
+}
+
+/* CATEGORIES */
+.categories-section {
+  max-width: 1200px; margin: 0 auto;
+  padding: 48px 40px;
+}
+.section-header {
+  display: flex; align-items: baseline;
+  justify-content: space-between; margin-bottom: 24px;
+}
+.section-title {
+  font-family: var(--serif); font-size: 22px;
+  font-weight: 700; color: var(--ink);
+}
+.section-link {
+  font-size: 12px; color: var(--muted);
+  text-decoration: none; font-family: var(--mono);
+  letter-spacing: 0.05em;
+}
+.section-link:hover { color: var(--accent); }
+.categories-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
+}
+.cat-card {
+  background: white; border: 1px solid var(--border);
+  border-radius: 8px; padding: 20px 16px;
+  text-align: center; text-decoration: none;
+  transition: all .2s; cursor: pointer;
+}
+.cat-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.cat-icon { font-size: 28px; margin-bottom: 8px; }
+.cat-name { font-family: var(--serif); font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.cat-count { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+
+/* FEATURED ARTICLE */
+.featured-section {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 40px 60px;
+}
+.featured-article {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+  background: white;
+}
+.featured-image {
+  background: linear-gradient(135deg, #f0e6d3, #e8d5b8);
+  display: flex; align-items: center; justify-content: center;
+  min-height: 360px; position: relative; overflow: hidden;
+}
+.featured-image-inner {
+  text-align: center; padding: 40px;
+}
+.featured-image-emoji { font-size: 80px; margin-bottom: 16px; display: block; }
+.featured-image-caption {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em;
+}
+.featured-content { padding: 40px; }
+.featured-tag {
+  display: inline-block;
+  font-family: var(--mono); font-size: 10px;
+  color: var(--accent); text-transform: uppercase;
+  letter-spacing: 0.12em; margin-bottom: 14px;
+  background: rgba(196,98,45,0.08);
+  padding: 4px 10px; border-radius: 100px;
+}
+.featured-title {
+  font-family: var(--serif); font-size: 30px;
+  font-weight: 700; line-height: 1.2;
+  color: var(--ink); margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+.featured-excerpt {
+  font-size: 14px; color: var(--ink2);
+  line-height: 1.75; margin-bottom: 24px;
+}
+.featured-meta {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 28px;
+}
+.meta-item {
+  display: flex; align-items: center; gap: 6px;
+  font-family: var(--mono); font-size: 10px; color: var(--muted);
+}
+.user-quote {
+  background: var(--cream2); border-left: 3px solid var(--accent);
+  padding: 14px 18px; border-radius: 0 6px 6px 0;
+  margin-bottom: 24px;
+}
+.user-quote p {
+  font-size: 13px; color: var(--ink2);
+  line-height: 1.6; font-style: italic; margin-bottom: 6px;
+}
+.user-quote-author {
+  font-family: var(--mono); font-size: 10px; color: var(--muted);
+}
+.read-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--ink); color: var(--cream);
+  font-family: var(--sans); font-size: 13px; font-weight: 500;
+  padding: 12px 24px; border-radius: 4px;
+  text-decoration: none; transition: background .15s;
+  letter-spacing: 0.02em;
+}
+.read-btn:hover { background: var(--accent); }
+.read-btn svg { transition: transform .15s; }
+.read-btn:hover svg { transform: translateX(3px); }
+
+/* ARTICLE GRID */
+.articles-section {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 40px 80px;
+}
+.articles-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.article-card {
+  background: white; border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden;
+  text-decoration: none; transition: all .2s;
+  display: flex; flex-direction: column;
+}
+.article-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-color: var(--accent); }
+.article-card-image {
+  height: 160px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 48px;
+}
+.article-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.article-card-tag {
+  font-family: var(--mono); font-size: 9px;
+  color: var(--accent); text-transform: uppercase;
+  letter-spacing: 0.1em; margin-bottom: 8px;
+}
+.article-card-title {
+  font-family: var(--serif); font-size: 17px;
+  font-weight: 700; color: var(--ink);
+  line-height: 1.3; margin-bottom: 10px; flex: 1;
+}
+.article-card-excerpt {
+  font-size: 12px; color: var(--muted);
+  line-height: 1.6; margin-bottom: 14px;
+}
+.article-card-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 14px; border-top: 1px solid var(--border);
+}
+.article-card-accounts {
+  font-family: var(--mono); font-size: 10px; color: var(--muted);
+}
+.article-card-read {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--accent); letter-spacing: 0.05em;
+}
+
+/* SEARCH RESULTS */
+.search-results {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 40px 80px; display: none;
+}
+.search-results.visible { display: block; }
+.search-results-title {
+  font-family: var(--serif); font-size: 20px;
+  margin-bottom: 20px; color: var(--ink);
+}
+.search-results-title span { color: var(--accent); }
+
+/* FOOTER */
+footer {
+  background: var(--ink); color: var(--cream);
+  padding: 48px 40px;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-logo {
+  font-family: var(--serif); font-size: 22px;
+  font-weight: 700; color: var(--cream);
+}
+.footer-logo span { color: var(--accent); }
+.footer-text {
+  font-size: 12px; color: rgba(245,240,232,0.5);
+  max-width: 400px; line-height: 1.6;
+}
+.footer-disclaimer {
+  font-size: 11px; color: rgba(245,240,232,0.35);
+  margin-top: 24px; padding-top: 24px;
+  border-top: 1px solid rgba(245,240,232,0.1);
+  max-width: 1200px; margin: 24px auto 0;
+  text-align: center; line-height: 1.7;
+}
+
+/* SEARCH HIGHLIGHT */
+.highlight { background: rgba(196,98,45,0.12); border-radius: 2px; padding: 0 2px; }
+
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-title { font-size: 36px; }
+  .categories-grid { grid-template-columns: repeat(3, 1fr); }
+  .featured-article { grid-template-columns: 1fr; }
+  .articles-grid { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+  .site-header { padding: 0 20px; }
+  .hero, .categories-section, .featured-section, .articles-section { padding-left: 20px; padding-right: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Tryed<span>.</span></a>
+    <nav class="nav">
+      <a href="#hair">Hair</a>
+      <a href="#makeup">Makeup</a>
+      <a href="#skincare">Skincare</a>
+      <a href="#styling">Styling</a>
+      <div class="nav-search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="nav-search-inp" placeholder="Search articles..." oninput="handleSearch(this.value)" />
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Validated by real people</div>
+    <h1 class="hero-title">Find products that <em>actually</em> work</h1>
+    <p class="hero-sub">We collect honest accounts from real people — no sponsorships, no fluff. Just what worked, what didn't, and why.</p>
+    <div class="hero-search">
+      <input type="text" id="hero-search-inp" placeholder="What are you looking for? e.g. hair growth serum..." oninput="handleSearch(this.value)" />
+      <button onclick="handleSearch(document.getElementById('hero-search-inp').value)">Search</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card-stack">
+      <div class="hero-card">
+        <div class="hero-card-tag">Hair Growth</div>
+        <div class="hero-card-title">What actually stops hair from thinning?</div>
+        <div class="hero-card-text">"Three months in and my ponytail is noticeably thicker..."</div>
+        <div class="hero-card-author">
+          <div class="hero-card-avatar">S</div>
+          <div class="hero-card-name">Sarah M. · verified account</div>
+        </div>
+      </div>
+      <div class="hero-card" style="top:80px;left:60px;z-index:3;">
+        <div class="hero-card-tag">Skincare</div>
+        <div class="hero-card-title">Best face mask for acne-prone skin?</div>
+        <div class="hero-card-text">"My skin cleared up within two weeks of consistent use..."</div>
+        <div class="hero-card-author">
+          <div class="hero-card-avatar">J</div>
+          <div class="hero-card-name">Jordan K. · verified account</div>
+        </div>
+      </div>
+      <div class="hero-card" style="top:160px;left:20px;z-index:2;">
+        <div class="hero-card-tag">Makeup</div>
+        <div class="hero-card-title">Foundation that actually lasts all day?</div>
+        <div class="hero-card-text">"Wore it through a 10 hour shift. Still on."</div>
+        <div class="hero-card-author">
+          <div class="hero-card-avatar">M</div>
+          <div class="hero-card-name">Maya R. · verified account</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- CATEGORIES -->
+<section class="categories-section" id="categories">
+  <div class="section-header">
+    <div class="section-title">Browse by category</div>
+  </div>
+  <div class="categories-grid">
+    <div class="cat-card" onclick="filterByCategory('Hair Growth')">
+      <div class="cat-icon">🌿</div>
+      <div class="cat-name">Hair Growth</div>
+      <div class="cat-count" id="count-hair-growth">Loading...</div>
+    </div>
+    <div class="cat-card" onclick="filterByCategory('Hair Care')">
+      <div class="cat-icon">💆</div>
+      <div class="cat-name">Hair Care</div>
+      <div class="cat-count" id="count-hair-care">Loading...</div>
+    </div>
+    <div class="cat-card" onclick="filterByCategory('Styling Tools')">
+      <div class="cat-icon">✨</div>
+      <div class="cat-name">Styling Tools</div>
+      <div class="cat-count" id="count-styling">Loading...</div>
+    </div>
+    <div class="cat-card" onclick="filterByCategory('Makeup')">
+      <div class="cat-icon">💄</div>
+      <div class="cat-name">Makeup</div>
+      <div class="cat-count" id="count-makeup">Loading...</div>
+    </div>
+    <div class="cat-card" onclick="filterByCategory('Skincare')">
+      <div class="cat-icon">🧴</div>
+      <div class="cat-name">Skincare</div>
+      <div class="cat-count" id="count-skincare">Loading...</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- FEATURED ARTICLE -->
+<section class="featured-section">
+  <div class="section-header">
+    <div class="section-title">Featured</div>
+  </div>
+  <a href="articles/what-is-the-best-hair-growth-serum.html" class="featured-article" style="text-decoration:none;">
+    <div class="featured-image">
+      <div class="featured-image-inner">
+        <span class="featured-image-emoji">🌿</span>
+        <div class="featured-image-caption">Hair Growth · 47 accounts collected</div>
+      </div>
+    </div>
+    <div class="featured-content">
+      <span class="featured-tag">Hair Growth</span>
+      <h2 class="featured-title">What is the best hair growth serum — according to people who actually used one?</h2>
+      <p class="featured-excerpt">We reached out to people dealing with hair thinning and asked them what worked. The answers were more consistent than we expected.</p>
+      <div class="featured-meta">
+        <div class="meta-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          47 accounts
+        </div>
+        <div class="meta-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          6 min read
+        </div>
+      </div>
+      <div class="user-quote">
+        <p>"My stylist noticed my hair getting thicker before I even told her I had changed anything. That reaction told me everything I needed to know."</p>
+        <div class="user-quote-author">— Dana W., 34 · submitted her account to Tryed</div>
+      </div>
+      <span class="read-btn">
+        Read the accounts
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </span>
+    </div>
+  </a>
+</section>
+
+<hr class="section-divider">
+
+<!-- ARTICLE GRID -->
+<section class="articles-section">
+  <div class="section-header">
+    <div class="section-title">Latest articles</div>
+    <a href="#" class="section-link">VIEW ALL →</a>
+  </div>
+
+  <!-- Search results (hidden by default) -->
+  <div class="search-results" id="search-results">
+    <div class="search-results-title">Results for "<span id="search-query-label"></span>"</div>
+    <div class="articles-grid" id="search-results-grid"></div>
+  </div>
+
+  <!-- Default grid -->
+  <div class="articles-grid" id="articles-grid">
+    <!-- Populated by JS from articles.json -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Tryed<span>.</span></div>
+    <div class="footer-text">We collect real accounts from real people. No paid placements. No sponsored content. Just honest experiences shared by the community.</div>
+  </div>
+  <div class="footer-disclaimer">
+    Tryed participates in the Amazon Services LLC Associates Program. Some links on this site are affiliate links — if you purchase through them we may earn a small commission at no extra cost to you. This never influences which products we feature.
+  </div>
+</footer>
+
+<script>
+// ── Article data — loaded from articles.json ───────────────────────────────
+let allArticles = [];
+
+async function loadArticles() {
+  try {
+    const res = await fetch('articles.json');
+    allArticles = await res.json();
+  } catch {
+    allArticles = [];
+  }
+  // Add the example featured article
+  const example = {
+    slug: 'what-is-the-best-hair-growth-serum',
+    title: 'What is the best hair growth serum — according to people who actually used one?',
+    category: 'Hair Growth',
+    excerpt: 'We reached out to people dealing with hair thinning and asked what worked. The answers were more consistent than expected.',
+    emoji: '🌿',
+    accounts: 47,
+    readTime: 6,
+    date: '2026-04-29',
+    bg: '#f0e6d3'
+  };
+  if (!allArticles.find(a => a.slug === example.slug)) {
+    allArticles.unshift(example);
+  }
+  renderArticles(allArticles);
+  updateCounts();
+}
+
+function updateCounts() {
+  const cats = {
+    'Hair Growth': 'count-hair-growth',
+    'Hair Care': 'count-hair-care',
+    'Styling Tools': 'count-styling',
+    'Makeup': 'count-makeup',
+    'Skincare': 'count-skincare',
+  };
+  for (const [cat, id] of Object.entries(cats)) {
+    const count = allArticles.filter(a => a.category === cat).length;
+    document.getElementById(id).textContent = count + ' article' + (count !== 1 ? 's' : '');
+  }
+}
+
+function renderArticles(articles) {
+  const grid = document.getElementById('articles-grid');
+  if (!articles.length) {
+    grid.innerHTML = '<div style="color:var(--muted);font-size:14px;padding:20px 0;">No articles yet. Check back soon.</div>';
+    return;
+  }
+  grid.innerHTML = articles.map(a => `
+    <a href="articles/${a.slug}.html" class="article-card" style="text-decoration:none;">
+      <div class="article-card-image" style="background:${a.bg || '#f0e6d3'};">${a.emoji || '📄'}</div>
+      <div class="article-card-body">
+        <div class="article-card-tag">${a.category}</div>
+        <div class="article-card-title">${a.title}</div>
+        <div class="article-card-excerpt">${a.excerpt}</div>
+        <div class="article-card-footer">
+          <span class="article-card-accounts">${a.accounts || 0} accounts</span>
+          <span class="article-card-read">${a.readTime || 4} MIN READ →</span>
+        </div>
+      </div>
+    </a>
+  `).join('');
+}
+
+function handleSearch(query) {
+  const q = query.trim().toLowerCase();
+  const resultsEl = document.getElementById('search-results');
+  const defaultGrid = document.getElementById('articles-grid');
+  const label = document.getElementById('search-query-label');
+  const resultsGrid = document.getElementById('search-results-grid');
+
+  if (!q) {
+    resultsEl.classList.remove('visible');
+    defaultGrid.style.display = '';
+    return;
+  }
+
+  const filtered = allArticles.filter(a =>
+    a.title.toLowerCase().includes(q) ||
+    a.category.toLowerCase().includes(q) ||
+    (a.excerpt || '').toLowerCase().includes(q) ||
+    (a.keywords || []).some(k => k.toLowerCase().includes(q))
+  );
+
+  label.textContent = query;
+  resultsGrid.innerHTML = filtered.length ? filtered.map(a => `
+    <a href="articles/${a.slug}.html" class="article-card" style="text-decoration:none;">
+      <div class="article-card-image" style="background:${a.bg || '#f0e6d3'};">${a.emoji || '📄'}</div>
+      <div class="article-card-body">
+        <div class="article-card-tag">${a.category}</div>
+        <div class="article-card-title">${a.title}</div>
+        <div class="article-card-excerpt">${a.excerpt}</div>
+        <div class="article-card-footer">
+          <span class="article-card-accounts">${a.accounts || 0} accounts</span>
+          <span class="article-card-read">${a.readTime || 4} MIN READ →</span>
+        </div>
+      </div>
+    </a>
+  `).join('') : '<div style="color:var(--muted);font-size:14px;padding:20px 0;grid-column:1/-1;">No articles found for that search. Try a different keyword.</div>';
+
+  resultsEl.classList.add('visible');
+  defaultGrid.style.display = 'none';
+}
+
+function filterByCategory(cat) {
+  const filtered = allArticles.filter(a => a.category === cat);
+  const resultsEl = document.getElementById('search-results');
+  const defaultGrid = document.getElementById('articles-grid');
+  const label = document.getElementById('search-query-label');
+  const resultsGrid = document.getElementById('search-results-grid');
+
+  label.textContent = cat;
+  resultsGrid.innerHTML = filtered.length ? filtered.map(a => `
+    <a href="articles/${a.slug}.html" class="article-card" style="text-decoration:none;">
+      <div class="article-card-image" style="background:${a.bg || '#f0e6d3'};">${a.emoji || '📄'}</div>
+      <div class="article-card-body">
+        <div class="article-card-tag">${a.category}</div>
+        <div class="article-card-title">${a.title}</div>
+        <div class="article-card-excerpt">${a.excerpt}</div>
+        <div class="article-card-footer">
+          <span class="article-card-accounts">${a.accounts || 0} accounts</span>
+          <span class="article-card-read">${a.readTime || 4} MIN READ →</span>
+        </div>
+      </div>
+    </a>
+  `).join('') : `<div style="color:var(--muted);font-size:14px;padding:20px 0;grid-column:1/-1;">No ${cat} articles yet. Check back soon.</div>`;
+
+  resultsEl.classList.add('visible');
+  defaultGrid.style.display = 'none';
+}
+
+loadArticles();
+</script>
+</body>
+</html>
