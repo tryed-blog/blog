@@ -848,7 +848,7 @@ footer { background: var(--ink); color: var(--cream); padding: 48px 40px; }
   <div class="section-header">
     <div class="section-title">Featured</div>
   </div>
-  <a href="articles/what-is-the-best-hair-growth-serum.html" class="featured-article" style="text-decoration:none;">
+  <a href="articles/best-oils-for-hair-growth-a-comprehensive-review.html" class="featured-article" style="text-decoration:none;">
     <div class="featured-image">
       <div class="featured-image-inner">
         <span class="featured-image-emoji">🌿</span>
@@ -857,8 +857,8 @@ footer { background: var(--ink); color: var(--cream); padding: 48px 40px; }
     </div>
     <div class="featured-content">
       <span class="featured-tag">Hair Growth</span>
-      <h2 class="featured-title">What is the best hair growth serum — according to AI research and ingredient analysis?</h2>
-      <p class="featured-excerpt">We analysed the top hair growth serums by ingredient efficacy, price-to-performance ratio, and dermatological research. The results were more consistent than we expected.</p>
+      <h2 class="featured-title">Best Oils for Hair Growth: A Comprehensive Review</h2>
+      <p class="featured-excerpt">Discover the top hair growth oils backed by ingredient research — from rosemary to castor, ranked by effectiveness.</p>
       <div class="featured-meta">
         <div class="meta-item">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -1152,7 +1152,7 @@ let activeFilter = 'all';
 
 async function loadArticles() {
   try {
-    const res = await fetch('articles.json');
+    const res = await fetch('./articles.json');
     allArticles = await res.json();
   } catch { allArticles = []; }
 
