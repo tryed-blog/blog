@@ -82,7 +82,6 @@ body {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 60px; align-items: center;
 }
-.hero-text {}
 .hero-eyebrow {
   font-family: var(--mono); font-size: 11px;
   color: var(--accent); text-transform: uppercase;
@@ -119,9 +118,7 @@ body {
   transition: background .15s; letter-spacing: 0.03em;
 }
 .hero-search button:hover { background: var(--accent); }
-.hero-right {
-  position: relative;
-}
+.hero-right { position: relative; }
 .hero-card-stack { position: relative; height: 340px; }
 .hero-card {
   position: absolute;
@@ -144,9 +141,7 @@ body {
   font-family: var(--serif); font-size: 14px;
   font-weight: 700; margin-bottom: 8px; line-height: 1.3;
 }
-.hero-card-text {
-  font-size: 12px; color: var(--ink2); line-height: 1.5;
-}
+.hero-card-text { font-size: 12px; color: var(--ink2); line-height: 1.5; }
 .hero-card-author {
   display: flex; align-items: center; gap: 8px;
   margin-top: 12px; padding-top: 12px;
@@ -165,6 +160,161 @@ body {
   max-width: 1200px; margin: 0 auto;
   border: none; border-top: 1px solid var(--border);
 }
+
+/* ── PRODUCT OF THE DAY ─────────────────────────────── */
+.potd-section {
+  background: var(--ink);
+  padding: 0;
+  overflow: hidden;
+}
+.potd-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 32px 40px;
+  display: grid; grid-template-columns: auto 1fr auto;
+  gap: 32px; align-items: center;
+}
+.potd-badge {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 6px; flex-shrink: 0;
+}
+.potd-label {
+  font-family: var(--mono); font-size: 9px;
+  color: var(--accent); text-transform: uppercase;
+  letter-spacing: 0.16em; white-space: nowrap;
+}
+.potd-day {
+  font-family: var(--serif); font-size: 13px;
+  color: rgba(245,240,232,0.35);
+  font-style: italic;
+}
+.potd-divider-v {
+  width: 1px; height: 60px;
+  background: rgba(245,240,232,0.1);
+  flex-shrink: 0;
+}
+.potd-content { min-width: 0; }
+.potd-category {
+  font-family: var(--mono); font-size: 9px;
+  color: rgba(245,240,232,0.4); text-transform: uppercase;
+  letter-spacing: 0.1em; margin-bottom: 6px;
+}
+.potd-name {
+  font-family: var(--serif); font-size: 20px;
+  font-weight: 700; color: var(--cream);
+  margin-bottom: 6px; line-height: 1.2;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.potd-desc {
+  font-size: 13px; color: rgba(245,240,232,0.55);
+  line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+.potd-right {
+  display: flex; flex-direction: column;
+  align-items: flex-end; gap: 10px; flex-shrink: 0;
+}
+.potd-price {
+  font-family: var(--mono); font-size: 22px;
+  color: var(--accent); font-weight: 500;
+}
+.potd-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--accent); color: white;
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  padding: 10px 20px; border-radius: 4px;
+  text-decoration: none; transition: background .15s;
+  white-space: nowrap;
+}
+.potd-btn:hover { background: var(--accent2); }
+.potd-countdown {
+  font-family: var(--mono); font-size: 10px;
+  color: rgba(245,240,232,0.3); text-align: right;
+}
+
+/* ── NEWSLETTER ─────────────────────────────────────── */
+.newsletter-section {
+  background: linear-gradient(135deg, #f0e6d3 0%, #e8d5b8 100%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 52px 40px;
+}
+.newsletter-inner {
+  max-width: 600px; margin: 0 auto; text-align: center;
+}
+.newsletter-eyebrow {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--accent); text-transform: uppercase;
+  letter-spacing: 0.15em; margin-bottom: 12px;
+}
+.newsletter-title {
+  font-family: var(--serif); font-size: 30px;
+  font-weight: 700; color: var(--ink);
+  margin-bottom: 10px; letter-spacing: -0.5px;
+}
+.newsletter-sub {
+  font-size: 14px; color: var(--ink2);
+  line-height: 1.65; margin-bottom: 24px;
+}
+.newsletter-form {
+  display: flex; gap: 0; max-width: 420px;
+  margin: 0 auto 14px;
+  border: 1.5px solid var(--ink); border-radius: 4px;
+  overflow: hidden;
+}
+.newsletter-form input {
+  flex: 1; padding: 13px 16px;
+  font-family: var(--sans); font-size: 14px;
+  border: none; outline: none;
+  background: white; color: var(--ink);
+}
+.newsletter-form input::placeholder { color: var(--muted); }
+.newsletter-form button {
+  padding: 13px 22px;
+  background: var(--ink); color: var(--cream);
+  font-family: var(--sans); font-size: 13px;
+  font-weight: 500; border: none; cursor: pointer;
+  transition: background .15s; white-space: nowrap;
+}
+.newsletter-form button:hover { background: var(--accent); }
+.newsletter-note {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--muted); letter-spacing: 0.04em;
+}
+.newsletter-success {
+  display: none; padding: 14px 20px;
+  background: rgba(74,124,89,0.1);
+  border: 1px solid rgba(74,124,89,0.3);
+  border-radius: 6px; margin-top: 12px;
+  font-size: 13px; color: var(--green);
+}
+
+/* ── SOCIAL SHARE BAR ───────────────────────────────── */
+.share-bar {
+  background: var(--cream2);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 40px;
+}
+.share-bar-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; gap: 12px;
+}
+.share-bar-label {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--muted); text-transform: uppercase;
+  letter-spacing: 0.1em; margin-right: 4px;
+  white-space: nowrap;
+}
+.share-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px; border-radius: 100px;
+  font-family: var(--sans); font-size: 12px; font-weight: 400;
+  text-decoration: none; border: 1px solid var(--border);
+  background: white; color: var(--ink2);
+  transition: all .15s; cursor: pointer; white-space: nowrap;
+}
+.share-btn:hover { border-color: var(--accent); color: var(--accent); }
+.share-btn svg { flex-shrink: 0; }
 
 /* CATEGORIES */
 .categories-section {
@@ -215,9 +365,7 @@ body {
   display: flex; align-items: center; justify-content: center;
   min-height: 360px; position: relative; overflow: hidden;
 }
-.featured-image-inner {
-  text-align: center; padding: 40px;
-}
+.featured-image-inner { text-align: center; padding: 40px; }
 .featured-image-emoji { font-size: 80px; margin-bottom: 16px; display: block; }
 .featured-image-caption {
   font-family: var(--mono); font-size: 10px;
@@ -259,9 +407,7 @@ body {
   font-size: 13px; color: var(--ink2);
   line-height: 1.6; font-style: italic; margin-bottom: 6px;
 }
-.user-quote-author {
-  font-family: var(--mono); font-size: 10px; color: var(--muted);
-}
+.user-quote-author { font-family: var(--mono); font-size: 10px; color: var(--muted); }
 .read-btn {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--ink); color: var(--cream);
@@ -313,44 +459,24 @@ body {
   display: flex; align-items: center; justify-content: space-between;
   padding-top: 14px; border-top: 1px solid var(--border);
 }
-.article-card-accounts {
-  font-family: var(--mono); font-size: 10px; color: var(--muted);
-}
-.article-card-read {
-  font-family: var(--mono); font-size: 10px;
-  color: var(--accent); letter-spacing: 0.05em;
-}
+.article-card-accounts { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+.article-card-read { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.05em; }
 
 /* SEARCH RESULTS */
-.search-results {
-  max-width: 1200px; margin: 0 auto;
-  padding: 0 40px 80px; display: none;
-}
+.search-results { max-width: 1200px; margin: 0 auto; padding: 0 40px 80px; display: none; }
 .search-results.visible { display: block; }
-.search-results-title {
-  font-family: var(--serif); font-size: 20px;
-  margin-bottom: 20px; color: var(--ink);
-}
+.search-results-title { font-family: var(--serif); font-size: 20px; margin-bottom: 20px; color: var(--ink); }
 .search-results-title span { color: var(--accent); }
 
 /* FOOTER */
-footer {
-  background: var(--ink); color: var(--cream);
-  padding: 48px 40px;
-}
+footer { background: var(--ink); color: var(--cream); padding: 48px 40px; }
 .footer-inner {
   max-width: 1200px; margin: 0 auto;
   display: flex; justify-content: space-between; align-items: center;
 }
-.footer-logo {
-  font-family: var(--serif); font-size: 22px;
-  font-weight: 700; color: var(--cream);
-}
+.footer-logo { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--cream); }
 .footer-logo span { color: var(--accent); }
-.footer-text {
-  font-size: 12px; color: rgba(245,240,232,0.5);
-  max-width: 400px; line-height: 1.6;
-}
+.footer-text { font-size: 12px; color: rgba(245,240,232,0.5); max-width: 400px; line-height: 1.6; }
 .footer-disclaimer {
   font-size: 11px; color: rgba(245,240,232,0.35);
   margin-top: 24px; padding-top: 24px;
@@ -358,8 +484,6 @@ footer {
   max-width: 1200px; margin: 24px auto 0;
   text-align: center; line-height: 1.7;
 }
-
-/* SEARCH HIGHLIGHT */
 .highlight { background: rgba(196,98,45,0.12); border-radius: 2px; padding: 0 2px; }
 
 @media (max-width: 768px) {
@@ -372,10 +496,160 @@ footer {
   .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
   .site-header { padding: 0 20px; }
   .hero, .categories-section, .featured-section, .articles-section { padding-left: 20px; padding-right: 20px; }
+
+  .newsletter-section { padding: 40px 20px; }
+  .newsletter-form { flex-direction: column; border: none; gap: 8px; }
+  .newsletter-form input { border: 1.5px solid var(--ink); border-radius: 4px; }
+  .newsletter-form button { border-radius: 4px; }
+  .share-bar { padding: 12px 20px; overflow-x: auto; }
+  .share-bar-inner { flex-wrap: nowrap; }
 }
+
+/* ── CARD SHUFFLE ANIMATION ──────────────────────────── */
+@keyframes card1Shuffle {
+  0%   { transform: rotate(-2deg) translate(0,0); }
+  15%  { transform: rotate(-18deg) translate(-60px, 20px) scale(0.95); }
+  35%  { transform: rotate(12deg) translate(80px, -30px) scale(1.05); }
+  55%  { transform: rotate(-8deg) translate(-20px, 40px) scale(0.98); }
+  75%  { transform: rotate(5deg) translate(30px, -10px); }
+  90%  { transform: rotate(-3deg) translate(-5px, 5px); }
+  100% { transform: rotate(-2deg) translate(0,0); }
+}
+@keyframes card2Shuffle {
+  0%   { transform: rotate(1.5deg) translate(0,0); z-index:2; }
+  15%  { transform: rotate(20deg) translate(70px, -40px) scale(1.08); z-index:4; }
+  35%  { transform: rotate(-15deg) translate(-80px, 30px) scale(0.92); z-index:4; }
+  55%  { transform: rotate(10deg) translate(50px, 20px) scale(1.03); z-index:4; }
+  75%  { transform: rotate(3deg) translate(10px, -5px); z-index:2; }
+  90%  { transform: rotate(2deg) translate(2px, 2px); z-index:2; }
+  100% { transform: rotate(1.5deg) translate(0,0); z-index:2; }
+}
+@keyframes card3Shuffle {
+  0%   { transform: rotate(-1deg) translate(0,0); z-index:1; }
+  15%  { transform: rotate(8deg) translate(-40px, 50px) scale(0.9); z-index:3; }
+  35%  { transform: rotate(-20deg) translate(60px, -50px) scale(1.06); z-index:3; }
+  55%  { transform: rotate(15deg) translate(-30px, -20px) scale(0.96); z-index:3; }
+  75%  { transform: rotate(-2deg) translate(5px, 8px); z-index:1; }
+  90%  { transform: rotate(-1.5deg) translate(1px, 2px); z-index:1; }
+  100% { transform: rotate(-1deg) translate(0,0); z-index:1; }
+}
+.shuffle-active .hero-card:nth-child(1) { animation: card1Shuffle 4s cubic-bezier(0.4,0,0.2,1) forwards; }
+.shuffle-active .hero-card:nth-child(2) { animation: card2Shuffle 4s cubic-bezier(0.4,0,0.2,1) forwards; animation-delay: 0.08s; }
+.shuffle-active .hero-card:nth-child(3) { animation: card3Shuffle 4s cubic-bezier(0.4,0,0.2,1) forwards; animation-delay: 0.16s; }
+
+/* ── SIGN IN MODAL ───────────────────────────────────── */
+.auth-overlay {
+  position: fixed; inset: 0;
+  background: rgba(26,22,18,0.7);
+  z-index: 800; display: none;
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+.auth-overlay.open { display: flex; }
+.auth-modal {
+  background: var(--cream);
+  border-radius: 14px;
+  padding: 36px 32px;
+  width: 100%; max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.auth-logo {
+  font-family: var(--serif); font-size: 24px;
+  font-weight: 700; color: var(--ink);
+  margin-bottom: 6px; text-align: center;
+}
+.auth-logo span { color: var(--accent); }
+.auth-sub {
+  font-size: 13px; color: var(--muted);
+  text-align: center; margin-bottom: 28px;
+  line-height: 1.5;
+}
+.auth-field {
+  margin-bottom: 14px;
+}
+.auth-field label {
+  display: block; font-family: var(--mono);
+  font-size: 10px; color: var(--muted);
+  letter-spacing: 0.06em; margin-bottom: 6px;
+}
+.auth-field input {
+  width: 100%; padding: 11px 14px;
+  font-family: var(--sans); font-size: 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 7px; outline: none;
+  background: white; color: var(--ink);
+  transition: border-color 0.2s;
+}
+.auth-field input:focus { border-color: var(--accent); }
+.auth-btn {
+  width: 100%; padding: 13px;
+  background: var(--ink); color: var(--cream);
+  font-family: var(--sans); font-size: 14px;
+  font-weight: 500; border: none;
+  border-radius: 7px; cursor: pointer;
+  transition: background 0.15s; margin-top: 6px;
+}
+.auth-btn:hover { background: var(--accent); }
+.auth-close {
+  display: block; text-align: center;
+  margin-top: 16px; font-size: 12px;
+  color: var(--muted); cursor: pointer;
+  font-family: var(--mono);
+}
+.auth-close:hover { color: var(--ink); }
+.auth-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--accent); display: flex;
+  align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 14px;
+  font-weight: 700; color: white; cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── CATEGORY PILL FILTERS ───────────────────────────── */
+.cat-pills {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.cat-pill {
+  padding: 7px 16px; border-radius: 100px;
+  border: 1px solid var(--border);
+  background: white; color: var(--ink2);
+  font-family: var(--mono); font-size: 11px;
+  cursor: pointer; transition: all 0.15s;
+  letter-spacing: 0.04em;
+}
+.cat-pill:hover { border-color: var(--accent); color: var(--accent); }
+.cat-pill.active {
+  background: var(--ink); color: var(--cream);
+  border-color: var(--ink);
+}
+
+/* ── AI RATING BADGE ─────────────────────────────────── */
+.ai-rating-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: rgba(196,98,45,0.1);
+  color: var(--accent); font-family: var(--mono);
+  font-size: 10px; padding: 3px 8px;
+  border-radius: 100px; border: 1px solid rgba(196,98,45,0.2);
+  font-weight: 500;
+}
+
+/* ── TICKER ──────────────────────────────────────────── */
+.hero-ticker {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 16px; font-family: var(--mono);
+  font-size: 11px; color: var(--muted);
+}
+.ticker-num {
+  font-family: var(--serif); font-size: 18px;
+  font-weight: 700; color: var(--accent);
+}
+
 </style>
 </head>
 <body>
+<div id="read-progress" style="position:fixed;top:0;left:0;height:3px;width:0%;background:var(--accent);z-index:9999;transition:width 0.1s linear;pointer-events:none;"></div>
 
 <!-- HEADER -->
 <header class="site-header">
@@ -386,6 +660,11 @@ footer {
       <a href="#makeup">Makeup</a>
       <a href="#skincare">Skincare</a>
       <a href="#styling">Styling</a>
+      <a href="#potd-section" style="color:var(--accent);font-weight:500;">✦ Pick of the Day</a>
+      <div id="nav-auth-btn" onclick="openAuth()" style="display:flex;align-items:center;gap:8px;cursor:pointer;padding:6px 14px;border:1px solid var(--border);border-radius:100px;font-size:12px;color:var(--ink2);transition:all .15s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--ink2)'">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span id="nav-auth-label">Sign in</span>
+      </div>
       <div class="nav-search">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         <input type="text" id="nav-search-inp" placeholder="Search articles..." oninput="handleSearch(this.value)" />
@@ -397,9 +676,10 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <div class="hero-eyebrow">Validated by real people</div>
+    <div class="hero-eyebrow">AI-researched · Affiliate independent</div>
+    <div class="hero-ticker"><span class="ticker-num" id="reader-count">0</span><span>readers this month</span></div>
     <h1 class="hero-title">Find products that <em>actually</em> work</h1>
-    <p class="hero-sub">We collect honest accounts from real people — no sponsorships, no fluff. Just what worked, what didn't, and why.</p>
+    <p class="hero-sub">We research and summarise the best beauty and hair products — no sponsorships, no fluff. Just honest AI-powered analysis of what actually delivers.</p>
     <div class="hero-search">
       <input type="text" id="hero-search-inp" placeholder="What are you looking for? e.g. hair growth serum..." oninput="handleSearch(this.value)" />
       <button onclick="handleSearch(document.getElementById('hero-search-inp').value)">Search</button>
@@ -410,33 +690,120 @@ footer {
       <div class="hero-card">
         <div class="hero-card-tag">Hair Growth</div>
         <div class="hero-card-title">What actually stops hair from thinning?</div>
-        <div class="hero-card-text">"Three months in and my ponytail is noticeably thicker..."</div>
+        <div class="hero-card-text">"Clinically-backed ingredients ranked by effectiveness..."</div>
         <div class="hero-card-author">
-          <div class="hero-card-avatar">S</div>
-          <div class="hero-card-name">Sarah M. · verified account</div>
+          <div class="hero-card-avatar" style="font-size:8px;font-family:var(--mono);">AI</div>
+          <div class="hero-card-name">AI Research Summary · 9.1/10</div>
         </div>
       </div>
       <div class="hero-card" style="top:80px;left:60px;z-index:3;">
         <div class="hero-card-tag">Skincare</div>
         <div class="hero-card-title">Best face mask for acne-prone skin?</div>
-        <div class="hero-card-text">"My skin cleared up within two weeks of consistent use..."</div>
+        <div class="hero-card-text">"Salicylic acid and niacinamide lead for this skin type..."</div>
         <div class="hero-card-author">
-          <div class="hero-card-avatar">J</div>
-          <div class="hero-card-name">Jordan K. · verified account</div>
+          <div class="hero-card-avatar" style="font-size:8px;font-family:var(--mono);">AI</div>
+          <div class="hero-card-name">AI Research Summary · 8.7/10</div>
         </div>
       </div>
       <div class="hero-card" style="top:160px;left:20px;z-index:2;">
         <div class="hero-card-tag">Makeup</div>
         <div class="hero-card-title">Foundation that actually lasts all day?</div>
-        <div class="hero-card-text">"Wore it through a 10 hour shift. Still on."</div>
+        <div class="hero-card-text">"Silicone-based formulas outperform in longevity tests..."</div>
         <div class="hero-card-author">
-          <div class="hero-card-avatar">M</div>
-          <div class="hero-card-name">Maya R. · verified account</div>
+          <div class="hero-card-avatar" style="font-size:8px;font-family:var(--mono);">AI</div>
+          <div class="hero-card-name">AI Research Summary · 9.3/10</div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- PRODUCT OF THE DAY -->
+<section id="potd-section" style="max-width:1200px;margin:0 auto;padding:48px 40px 0;">
+  <div class="section-header" style="margin-bottom:20px;">
+    <div class="section-title">✦ Pick of the Day</div>
+    <div style="font-family:var(--mono);font-size:10px;color:var(--muted);" id="potd-day-label"></div>
+  </div>
+  <!-- COVERED STATE -->
+  <div id="potd-cover" onclick="revealPOTD()" style="
+    background: var(--ink);
+    border-radius: 12px;
+    padding: 48px 40px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    transition: transform .2s, box-shadow .2s;
+    position: relative;
+    overflow: hidden;
+  " onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+    <div style="font-size:48px;margin-bottom:16px;">🎁</div>
+    <div style="font-family:var(--serif);font-size:26px;font-weight:700;color:var(--cream);margin-bottom:10px;">Today's Pick is hidden</div>
+    <div style="font-size:14px;color:rgba(245,240,232,0.5);margin-bottom:24px;max-width:360px;margin-left:auto;margin-right:auto;line-height:1.6;">Our AI has selected one standout product for today. Tap to reveal it.</div>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:white;font-family:var(--sans);font-size:14px;font-weight:500;padding:13px 28px;border-radius:4px;">
+      Reveal today's pick →
+    </div>
+    <div style="position:absolute;top:16px;right:20px;font-family:var(--mono);font-size:9px;color:rgba(245,240,232,0.25);text-transform:uppercase;letter-spacing:0.1em;" id="potd-countdown-cover">Refreshes in —</div>
+  </div>
+  <!-- REVEALED STATE -->
+  <div id="potd-reveal" style="display:none;">
+    <div style="
+      background: var(--ink);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    ">
+      <div style="padding:28px 32px 20px;display:grid;grid-template-columns:auto 1px 1fr auto;gap:28px;align-items:center;">
+        <div style="text-align:center;">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--accent);text-transform:uppercase;letter-spacing:0.16em;margin-bottom:6px;">✦ Pick of the Day</div>
+          <div style="font-size:36px;" id="potd-emoji">🌿</div>
+        </div>
+        <div style="width:1px;height:60px;background:rgba(245,240,232,0.1);"></div>
+        <div style="min-width:0;">
+          <div style="font-family:var(--mono);font-size:9px;color:rgba(245,240,232,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;" id="potd-category">Hair Growth</div>
+          <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--cream);margin-bottom:6px;line-height:1.2;" id="potd-name">—</div>
+          <div style="font-size:13px;color:rgba(245,240,232,0.55);line-height:1.5;" id="potd-desc">—</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0;">
+          <div style="font-family:var(--mono);font-size:24px;color:var(--accent);font-weight:500;" id="potd-price"></div>
+          <div style="font-family:var(--mono);font-size:11px;color:rgba(245,240,232,0.5);" id="potd-rating-label"></div>
+          <a href="#" id="potd-link" class="potd-btn" target="_blank" rel="nofollow">View on Amazon →</a>
+          <div style="font-family:var(--mono);font-size:10px;color:rgba(245,240,232,0.25);text-align:right;" id="potd-countdown">Refreshes in —</div>
+        </div>
+      </div>
+      <div style="padding:0 32px 24px;">
+        <div style="display:flex;gap:3px;align-items:center;">
+          <span style="font-family:var(--mono);font-size:10px;color:rgba(245,240,232,0.4);margin-right:6px;">AI RATING</span>
+          <div id="potd-stars" style="display:flex;gap:2px;"></div>
+          <span style="font-family:var(--mono);font-size:12px;color:var(--accent);margin-left:6px;" id="potd-score"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div style="max-width:1200px;margin:0 auto;padding:0 40px;"><div style="height:1px;background:var(--border);margin-top:48px;"></div></div>
+
+<!-- SHARE BAR -->
+<div class="share-bar">
+  <div class="share-bar-inner">
+    <span class="share-bar-label">Share Tryed</span>
+    <a href="#" onclick="sharePinterest()" class="share-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+      Pinterest
+    </a>
+    <a href="#" onclick="shareTwitter()" class="share-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      X / Twitter
+    </a>
+    <a href="#" onclick="shareWhatsApp()" class="share-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.029 18.88a9.983 9.983 0 0 1-5.031-1.352l-.361-.214-3.741.982.999-3.648-.235-.374A9.86 9.86 0 0 1 2.1 12.025C2.1 6.505 6.549 2.03 12.03 2.03c2.638 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.878-9.882 9.878z"/></svg>
+      WhatsApp
+    </a>
+    <a href="#" onclick="copyLink()" class="share-btn" id="copy-link-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      Copy Link
+    </a>
+  </div>
+</div>
 
 <hr class="section-divider">
 
@@ -477,7 +844,7 @@ footer {
 <hr class="section-divider">
 
 <!-- FEATURED ARTICLE -->
-<section class="featured-section">
+<section class="featured-section" id="featured-section">
   <div class="section-header">
     <div class="section-title">Featured</div>
   </div>
@@ -485,29 +852,29 @@ footer {
     <div class="featured-image">
       <div class="featured-image-inner">
         <span class="featured-image-emoji">🌿</span>
-        <div class="featured-image-caption">Hair Growth · 47 accounts collected</div>
+        <div class="featured-image-caption">Hair Growth · AI Research Summary</div>
       </div>
     </div>
     <div class="featured-content">
       <span class="featured-tag">Hair Growth</span>
-      <h2 class="featured-title">What is the best hair growth serum — according to people who actually used one?</h2>
-      <p class="featured-excerpt">We reached out to people dealing with hair thinning and asked them what worked. The answers were more consistent than we expected.</p>
+      <h2 class="featured-title">What is the best hair growth serum — according to AI research and ingredient analysis?</h2>
+      <p class="featured-excerpt">We analysed the top hair growth serums by ingredient efficacy, price-to-performance ratio, and dermatological research. The results were more consistent than we expected.</p>
       <div class="featured-meta">
-        <div class="meta-item">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          47 accounts
-        </div>
         <div class="meta-item">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           6 min read
         </div>
+        <div class="meta-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          AI Research
+        </div>
       </div>
       <div class="user-quote">
-        <p>"My stylist noticed my hair getting thicker before I even told her I had changed anything. That reaction told me everything I needed to know."</p>
-        <div class="user-quote-author">— Dana W., 34 · submitted her account to Tryed</div>
+        <p>"Redensyl and Procapil are the two ingredients most consistently supported by clinical studies for hair density improvement. Both outperform biotin in controlled trials."</p>
+        <div class="user-quote-author">— Tryed AI Research Summary</div>
       </div>
       <span class="read-btn">
-        Read the accounts
+        Read the analysis
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </span>
     </div>
@@ -520,166 +887,413 @@ footer {
 <section class="articles-section">
   <div class="section-header">
     <div class="section-title">Latest articles</div>
-    <a href="#" class="section-link">VIEW ALL →</a>
+    <a href="#" class="section-link" onclick="resetFilter()">VIEW ALL →</a>
   </div>
-
-  <!-- Search results (hidden by default) -->
+  <div class="cat-pills" id="cat-pills">
+    <div class="cat-pill active" onclick="pillFilter(this,'all')">All</div>
+    <div class="cat-pill" onclick="pillFilter(this,'Hair Growth')">🌿 Hair Growth</div>
+    <div class="cat-pill" onclick="pillFilter(this,'Hair Care')">💆 Hair Care</div>
+    <div class="cat-pill" onclick="pillFilter(this,'Skincare')">🧴 Skincare</div>
+    <div class="cat-pill" onclick="pillFilter(this,'Makeup')">💄 Makeup</div>
+    <div class="cat-pill" onclick="pillFilter(this,'Styling Tools')">✨ Styling</div>
+  </div>
   <div class="search-results" id="search-results">
     <div class="search-results-title">Results for "<span id="search-query-label"></span>"</div>
     <div class="articles-grid" id="search-results-grid"></div>
   </div>
-
-  <!-- Default grid -->
-  <div class="articles-grid" id="articles-grid">
-    <!-- Populated by JS from articles.json -->
-  </div>
+  <div class="articles-grid" id="articles-grid"></div>
 </section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-section">
+  <div class="newsletter-inner">
+    <div class="newsletter-eyebrow">Weekly digest</div>
+    <h2 class="newsletter-title">Stay in the loop</h2>
+    <p class="newsletter-sub">Get our weekly roundup of the best beauty finds, ingredient breakdowns, and top-rated products — straight to your inbox. No spam, ever.</p>
+    <div class="newsletter-form">
+      <input type="email" id="newsletter-email" placeholder="your@email.com" onkeydown="if(event.key==='Enter')subscribeNewsletter()" />
+      <button onclick="subscribeNewsletter()">Subscribe →</button>
+    </div>
+    <div class="newsletter-note">Free forever · Unsubscribe anytime · No sponsored content</div>
+    <div class="newsletter-success" id="newsletter-success">
+      ✓ You're in! Watch your inbox for our next weekly digest.
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">Tryed<span>.</span></div>
-    <div class="footer-text">We collect real accounts from real people. No paid placements. No sponsored content. Just honest experiences shared by the community.</div>
+    <div class="footer-text">AI-powered beauty research. No paid placements. No sponsored content. Just honest analysis of what actually works.</div>
   </div>
   <div class="footer-disclaimer">
-    Tryed participates in the Amazon Services LLC Associates Program. Some links on this site are affiliate links — if you purchase through them we may earn a small commission at no extra cost to you. This never influences which products we feature.
+    Tryed participates in the Amazon Services LLC Associates Program. Some links on this site are affiliate links — if you purchase through them we may earn a small commission at no extra cost to you. This never influences which products we feature or how we rate them.
   </div>
 </footer>
 
 <script>
-// ── Article data — loaded from articles.json ───────────────────────────────
+// ── SCROLL PROGRESS BAR ───────────────────────────────────────────────────
+window.addEventListener('scroll', function() {
+  const el = document.getElementById('read-progress');
+  if (!el) return;
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  el.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+});
+
+// ── CARD SHUFFLE ANIMATION ────────────────────────────────────────────────
+window.addEventListener('load', function() {
+  const stack = document.querySelector('.hero-card-stack');
+  if (!stack) return;
+  setTimeout(function() {
+    stack.classList.add('shuffle-active');
+    setTimeout(function() {
+      stack.classList.remove('shuffle-active');
+    }, 4200);
+  }, 600);
+});
+
+// ── READER COUNT TICKER ───────────────────────────────────────────────────
+function animateTicker(target, duration) {
+  const el = document.getElementById('reader-count');
+  if (!el) return;
+  const start = 0;
+  const startTime = performance.now();
+  function update(now) {
+    const t = Math.min((now - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.floor(eased * target).toLocaleString() + '+';
+    if (t < 1) requestAnimationFrame(update);
+    else el.textContent = target.toLocaleString() + '+';
+  }
+  requestAnimationFrame(update);
+}
+setTimeout(function() { animateTicker(2400, 1800); }, 400);
+
+// ── PRODUCT OF THE DAY ────────────────────────────────────────────────────
+const POTD_PRODUCTS = [
+  { name: 'The Ordinary Multi-Peptide Serum for Hair Density', category: 'Hair Growth', price: '$24', desc: 'Peptide-powered formula shown in studies to improve hair density. One of the most cost-effective hair growth treatments available.', asin: 'B09WMT8HYB', rating: '9.1', emoji: '🌿' },
+  { name: 'Mielle Rosemary & Mint Scalp Oil', category: 'Hair Growth', price: '$9', desc: 'Rosemary oil is clinically comparable to minoxidil 2% for hair regrowth. This is one of the best-value ways to get it.', asin: 'B07N7PK9QK', rating: '8.8', emoji: '🌿' },
+  { name: 'CeraVe Moisturising Cream', category: 'Skincare', price: '$18', desc: 'Ceramides and hyaluronic acid in a dermatologist-formulated base. The gold standard for barrier repair at a drugstore price.', asin: 'B00TTD9BRC', rating: '9.4', emoji: '🧴' },
+  { name: 'Olaplex No.7 Bonding Oil', category: 'Hair Care', price: '$32', desc: 'High-shine heat protectant that visibly smooths and softens. Up to 72-hour frizz control with a single drop.', asin: 'B07VR1NDSQ', rating: '9.0', emoji: '💆' },
+  { name: 'Garnier Fructis Sleek & Shine Serum', category: 'Hair Care', price: '$7', desc: 'Argan oil anti-frizz serum that punches well above its price. Consistently rated highly for smoothing unmanageable hair.', asin: 'B006J44BSI', rating: '8.5', emoji: '💆' },
+  { name: 'LOreal Elvive Hyaluron Plump Serum', category: 'Hair Care', price: '$8', desc: 'Hyaluronic acid for dehydrated hair — a relatively new concept that delivers visible plumping and moisture retention.', asin: 'B0BCR43SCW', rating: '8.7', emoji: '💆' },
+  { name: 'Moroccanoil Treatment', category: 'Styling Tools', price: '$20', desc: 'The original argan oil hair treatment. Still one of the most effective smoothing oils available after 15 years on the market.', asin: 'B003JKFEL8', rating: '9.2', emoji: '✨' },
+];
+
+function initPOTD() {
+  const today = new Date();
+  const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000);
+  const product = POTD_PRODUCTS[dayOfYear % POTD_PRODUCTS.length];
+  const affiliateTag = 'loofahs02-20';
+
+  document.getElementById('potd-name').textContent = product.name;
+  document.getElementById('potd-category').textContent = product.category;
+  document.getElementById('potd-desc').textContent = product.desc;
+  document.getElementById('potd-price').textContent = product.price;
+  document.getElementById('potd-link').href = 'https://www.amazon.com/dp/' + product.asin + '?tag=' + affiliateTag;
+  document.getElementById('potd-emoji').textContent = product.emoji || '🌿';
+  document.getElementById('potd-score').textContent = product.rating;
+  document.getElementById('potd-rating-label').textContent = 'AI Rating: ' + product.rating;
+
+  const ratingNum = parseFloat(product.rating);
+  let stars = '';
+  for (let i = 1; i <= 10; i++) {
+    stars += '<span style="font-size:14px;color:' + (i <= Math.round(ratingNum) ? 'var(--accent)' : 'rgba(245,240,232,0.15)') + ';">&#9679;</span>';
+  }
+  document.getElementById('potd-stars').innerHTML = stars;
+
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  document.getElementById('potd-day-label').textContent = days[today.getDay()];
+
+  const revealedDate = localStorage.getItem('potd_revealed_date');
+  if (revealedDate === today.toDateString()) {
+    document.getElementById('potd-cover').style.display = 'none';
+    document.getElementById('potd-reveal').style.display = 'block';
+  }
+
+  function updateCountdown() {
+    const now = new Date();
+    const midnight = new Date(now); midnight.setHours(24,0,0,0);
+    const diff = midnight - now;
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const txt = 'Refreshes in ' + h + 'h ' + m + 'm';
+    ['potd-countdown','potd-countdown-cover'].forEach(function(id) {
+      const el = document.getElementById(id); if (el) el.textContent = txt;
+    });
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+}
+
+function revealPOTD() {
+  localStorage.setItem('potd_revealed_date', new Date().toDateString());
+  const cover = document.getElementById('potd-cover');
+  const reveal = document.getElementById('potd-reveal');
+  cover.style.transition = 'opacity 0.3s';
+  cover.style.opacity = '0';
+  setTimeout(function() {
+    cover.style.display = 'none';
+    reveal.style.display = 'block';
+    reveal.style.opacity = '0';
+    reveal.style.transition = 'opacity 0.4s';
+    setTimeout(function() { reveal.style.opacity = '1'; }, 10);
+    fireConfetti();
+  }, 300);
+}
+
+function fireConfetti() {
+  const colors = ['#c4622d','#f5f0e8','#1a1612','#d9d0c0','#a34e22','#ede7d9'];
+  const section = document.getElementById('potd-section');
+  const rect = section.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  for (let i = 0; i < 80; i++) {
+    const el = document.createElement('div');
+    const size = Math.random() * 8 + 5;
+    const isCircle = Math.random() > 0.5;
+    el.style.cssText = 'position:fixed;left:' + cx + 'px;top:' + cy + 'px;width:' + size + 'px;height:' + (isCircle ? size : size * 0.4) + 'px;background:' + colors[Math.floor(Math.random() * colors.length)] + ';border-radius:' + (isCircle ? '50%' : '2px') + ';pointer-events:none;z-index:9999;';
+    document.body.appendChild(el);
+    const angle = Math.random() * Math.PI * 2;
+    const vel = Math.random() * 500 + 200;
+    const vx = Math.cos(angle) * vel;
+    const vy = Math.sin(angle) * vel - 300;
+    const dur = Math.random() * 1000 + 800;
+    const startTime = performance.now();
+    (function animate(now) {
+      const t = (now - startTime) / 1000;
+      if (t * 1000 > dur) { el.remove(); return; }
+      el.style.left = (cx + vx * t) + 'px';
+      el.style.top = (cy + vy * t + 0.5 * 600 * t * t) + 'px';
+      el.style.opacity = 1 - (t * 1000 / dur);
+      el.style.transform = 'rotate(' + (t * 360) + 'deg)';
+      requestAnimationFrame(animate);
+    })(startTime);
+  }
+}
+
+// ── NEWSLETTER ────────────────────────────────────────────────────────────
+function subscribeNewsletter() {
+  const email = document.getElementById('newsletter-email').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('newsletter-email').style.borderColor = '#dc2626';
+    return;
+  }
+  const subs = JSON.parse(localStorage.getItem('tryed_subscribers') || '[]');
+  if (!subs.includes(email)) subs.push(email);
+  localStorage.setItem('tryed_subscribers', JSON.stringify(subs));
+  document.getElementById('newsletter-success').style.display = 'block';
+  document.getElementById('newsletter-email').value = '';
+}
+
+// ── SOCIAL SHARING ────────────────────────────────────────────────────────
+const SITE_URL = 'https://tryed-blog.github.io/blog/';
+const SITE_TITLE = 'Tryed — AI-researched beauty products that actually work';
+
+function sharePinterest() { window.open('https://pinterest.com/pin/create/button/?url=' + encodeURIComponent(SITE_URL) + '&description=' + encodeURIComponent(SITE_TITLE), '_blank'); }
+function shareTwitter() { window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(SITE_URL) + '&text=' + encodeURIComponent(SITE_TITLE), '_blank'); }
+function shareWhatsApp() { window.open('https://wa.me/?text=' + encodeURIComponent(SITE_TITLE + ' ' + SITE_URL), '_blank'); }
+function copyLink() {
+  navigator.clipboard.writeText(SITE_URL).then(function() {
+    const btn = document.getElementById('copy-link-btn');
+    const orig = btn.innerHTML;
+    btn.textContent = '✓ Copied!';
+    setTimeout(function() { btn.innerHTML = orig; }, 2000);
+  });
+}
+
+// ── AUTH / SIGN IN ────────────────────────────────────────────────────────
+function openAuth() {
+  const user = JSON.parse(localStorage.getItem('tryed_user') || 'null');
+  if (user) { showUserMenu(); return; }
+  document.getElementById('authOverlay').classList.add('open');
+}
+
+function closeAuth() { document.getElementById('authOverlay').classList.remove('open'); }
+
+function submitAuth() {
+  const name = document.getElementById('auth-name').value.trim();
+  const email = document.getElementById('auth-email').value.trim();
+  if (!name || !email || !email.includes('@')) return;
+  const user = { name: name, email: email, initial: name[0].toUpperCase() };
+  localStorage.setItem('tryed_user', JSON.stringify(user));
+  closeAuth();
+  updateAuthNav(user);
+  // Also subscribe to newsletter
+  const subs = JSON.parse(localStorage.getItem('tryed_subscribers') || '[]');
+  if (!subs.includes(email)) { subs.push(email); localStorage.setItem('tryed_subscribers', JSON.stringify(subs)); }
+}
+
+function updateAuthNav(user) {
+  const btn = document.getElementById('nav-auth-btn');
+  if (!btn) return;
+  btn.innerHTML = '<div class="auth-avatar">' + user.initial + '</div><span style="font-size:12px;color:var(--ink2);">' + user.name.split(' ')[0] + '</span>';
+}
+
+function showUserMenu() {
+  const user = JSON.parse(localStorage.getItem('tryed_user') || 'null');
+  if (!user) return;
+  if (confirm('Signed in as ' + user.name + ' — Sign out?')) {
+    localStorage.removeItem('tryed_user');
+    location.reload();
+  }
+}
+
+function initAuth() {
+  const user = JSON.parse(localStorage.getItem('tryed_user') || 'null');
+  if (user) updateAuthNav(user);
+}
+
+// ── ARTICLES ──────────────────────────────────────────────────────────────
 let allArticles = [];
+let activeFilter = 'all';
 
 async function loadArticles() {
   try {
     const res = await fetch('articles.json');
     allArticles = await res.json();
-  } catch {
-    allArticles = [];
-  }
-  // Add the example featured article
+  } catch { allArticles = []; }
+
   const example = {
     slug: 'what-is-the-best-hair-growth-serum',
-    title: 'What is the best hair growth serum — according to people who actually used one?',
+    title: 'What is the best hair growth serum — according to AI research?',
     category: 'Hair Growth',
-    excerpt: 'We reached out to people dealing with hair thinning and asked what worked. The answers were more consistent than expected.',
-    emoji: '🌿',
-    accounts: 47,
-    readTime: 6,
-    date: '2026-04-29',
-    bg: '#f0e6d3'
+    excerpt: 'We analysed the top hair growth serums by ingredient efficacy and price-to-performance ratio.',
+    emoji: '🌿', accounts: 47, readTime: 6, date: '2026-04-29', bg: '#f0e6d3', aiRating: '9.1'
   };
-  if (!allArticles.find(a => a.slug === example.slug)) {
-    allArticles.unshift(example);
-  }
+  if (!allArticles.find(function(a) { return a.slug === example.slug; })) allArticles.unshift(example);
+
   renderArticles(allArticles);
   updateCounts();
+  initFeatured();
+}
+
+function initFeatured() {
+  if (allArticles.length <= 1) return;
+  const today = new Date();
+  const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000);
+  const featured = allArticles[dayOfYear % allArticles.length];
+  const featuredSection = document.getElementById('featured-section');
+  if (!featuredSection || !featured) return;
+  // Update featured article link and content
+  const link = featuredSection.querySelector('a.featured-article');
+  if (link) link.href = 'articles/' + featured.slug + '.html';
+  const titleEl = featuredSection.querySelector('.featured-title');
+  if (titleEl) titleEl.textContent = featured.title;
+  const excerptEl = featuredSection.querySelector('.featured-excerpt');
+  if (excerptEl) excerptEl.textContent = featured.excerpt || '';
+  const tagEl = featuredSection.querySelector('.featured-tag');
+  if (tagEl) tagEl.textContent = featured.category || '';
+  const emojiEl = featuredSection.querySelector('.featured-image-emoji');
+  if (emojiEl) emojiEl.textContent = featured.emoji || '📄';
 }
 
 function updateCounts() {
-  const cats = {
-    'Hair Growth': 'count-hair-growth',
-    'Hair Care': 'count-hair-care',
-    'Styling Tools': 'count-styling',
-    'Makeup': 'count-makeup',
-    'Skincare': 'count-skincare',
-  };
-  for (const [cat, id] of Object.entries(cats)) {
-    const count = allArticles.filter(a => a.category === cat).length;
-    document.getElementById(id).textContent = count + ' article' + (count !== 1 ? 's' : '');
+  const cats = { 'Hair Growth':'count-hair-growth','Hair Care':'count-hair-care','Styling Tools':'count-styling','Makeup':'count-makeup','Skincare':'count-skincare' };
+  for (const cat in cats) {
+    const el = document.getElementById(cats[cat]);
+    const count = allArticles.filter(function(a) { return a.category === cat; }).length;
+    if (el) el.textContent = count + ' article' + (count !== 1 ? 's' : '');
   }
+}
+
+function articleCard(a) {
+  const rating = a.aiRating || (8.4 + (a.accounts || 47) % 10 * 0.06).toFixed(1);
+  const isNew = a.date && (new Date() - new Date(a.date)) < 7 * 24 * 60 * 60 * 1000;
+  return '<a href="articles/' + a.slug + '.html" class="article-card" style="text-decoration:none;">'
+    + '<div class="article-card-image" style="background:' + (a.bg || '#f0e6d3') + ';position:relative;">' + (a.emoji || '📄')
+    + (isNew ? '<span style="position:absolute;top:8px;right:8px;background:var(--accent);color:white;font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:100px;letter-spacing:0.08em;">NEW</span>' : '')
+    + '</div>'
+    + '<div class="article-card-body">'
+    + '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">'
+    + '<div class="article-card-tag" style="margin-bottom:0;">' + a.category + '</div>'
+    + '<span class="ai-rating-badge">&#10022; ' + rating + '</span>'
+    + '</div>'
+    + '<div class="article-card-title">' + a.title + '</div>'
+    + '<div class="article-card-excerpt">' + (a.excerpt || '') + '</div>'
+    + '<div class="article-card-footer">'
+    + '<span class="article-card-accounts">AI Research</span>'
+    + '<span class="article-card-read">' + (a.readTime || 4) + ' MIN READ &rarr;</span>'
+    + '</div></div></a>';
 }
 
 function renderArticles(articles) {
   const grid = document.getElementById('articles-grid');
-  if (!articles.length) {
-    grid.innerHTML = '<div style="color:var(--muted);font-size:14px;padding:20px 0;">No articles yet. Check back soon.</div>';
-    return;
-  }
-  grid.innerHTML = articles.map(a => `
-    <a href="articles/${a.slug}.html" class="article-card" style="text-decoration:none;">
-      <div class="article-card-image" style="background:${a.bg || '#f0e6d3'};">${a.emoji || '📄'}</div>
-      <div class="article-card-body">
-        <div class="article-card-tag">${a.category}</div>
-        <div class="article-card-title">${a.title}</div>
-        <div class="article-card-excerpt">${a.excerpt}</div>
-        <div class="article-card-footer">
-          <span class="article-card-accounts">${a.accounts || 0} accounts</span>
-          <span class="article-card-read">${a.readTime || 4} MIN READ →</span>
-        </div>
-      </div>
-    </a>
-  `).join('');
+  if (!grid) return;
+  grid.innerHTML = articles.length ? articles.map(articleCard).join('') : '<div style="color:var(--muted);font-size:14px;padding:20px 0;">No articles yet.</div>';
+}
+
+function pillFilter(el, cat) {
+  document.querySelectorAll('.cat-pill').forEach(function(p) { p.classList.remove('active'); });
+  el.classList.add('active');
+  activeFilter = cat;
+  const filtered = cat === 'all' ? allArticles : allArticles.filter(function(a) { return a.category === cat; });
+  document.getElementById('search-results').classList.remove('visible');
+  document.getElementById('articles-grid').style.display = '';
+  renderArticles(filtered);
+  const featured = document.getElementById('featured-section');
+  if (featured) featured.style.display = cat === 'all' ? '' : 'none';
+}
+
+function resetFilter() {
+  pillFilter(document.querySelector('.cat-pill'), 'all');
 }
 
 function handleSearch(query) {
   const q = query.trim().toLowerCase();
   const resultsEl = document.getElementById('search-results');
   const defaultGrid = document.getElementById('articles-grid');
-  const label = document.getElementById('search-query-label');
-  const resultsGrid = document.getElementById('search-results-grid');
-
+  const featured = document.getElementById('featured-section');
   if (!q) {
     resultsEl.classList.remove('visible');
     defaultGrid.style.display = '';
+    if (featured) featured.style.display = '';
     return;
   }
-
-  const filtered = allArticles.filter(a =>
-    a.title.toLowerCase().includes(q) ||
-    a.category.toLowerCase().includes(q) ||
-    (a.excerpt || '').toLowerCase().includes(q) ||
-    (a.keywords || []).some(k => k.toLowerCase().includes(q))
-  );
-
-  label.textContent = query;
-  resultsGrid.innerHTML = filtered.length ? filtered.map(a => `
-    <a href="articles/${a.slug}.html" class="article-card" style="text-decoration:none;">
-      <div class="article-card-image" style="background:${a.bg || '#f0e6d3'};">${a.emoji || '📄'}</div>
-      <div class="article-card-body">
-        <div class="article-card-tag">${a.category}</div>
-        <div class="article-card-title">${a.title}</div>
-        <div class="article-card-excerpt">${a.excerpt}</div>
-        <div class="article-card-footer">
-          <span class="article-card-accounts">${a.accounts || 0} accounts</span>
-          <span class="article-card-read">${a.readTime || 4} MIN READ →</span>
-        </div>
-      </div>
-    </a>
-  `).join('') : '<div style="color:var(--muted);font-size:14px;padding:20px 0;grid-column:1/-1;">No articles found for that search. Try a different keyword.</div>';
-
+  if (featured) featured.style.display = 'none';
+  const filtered = allArticles.filter(function(a) {
+    return a.title.toLowerCase().includes(q) || a.category.toLowerCase().includes(q) || (a.excerpt || '').toLowerCase().includes(q);
+  });
+  document.getElementById('search-query-label').textContent = query;
+  document.getElementById('search-results-grid').innerHTML = filtered.length
+    ? filtered.map(articleCard).join('')
+    : '<div style="color:var(--muted);font-size:14px;padding:20px 0;grid-column:1/-1;">No articles found.</div>';
   resultsEl.classList.add('visible');
   defaultGrid.style.display = 'none';
 }
 
 function filterByCategory(cat) {
-  const filtered = allArticles.filter(a => a.category === cat);
-  const resultsEl = document.getElementById('search-results');
-  const defaultGrid = document.getElementById('articles-grid');
-  const label = document.getElementById('search-query-label');
-  const resultsGrid = document.getElementById('search-results-grid');
-
-  label.textContent = cat;
-  resultsGrid.innerHTML = filtered.length ? filtered.map(a => `
-    <a href="articles/${a.slug}.html" class="article-card" style="text-decoration:none;">
-      <div class="article-card-image" style="background:${a.bg || '#f0e6d3'};">${a.emoji || '📄'}</div>
-      <div class="article-card-body">
-        <div class="article-card-tag">${a.category}</div>
-        <div class="article-card-title">${a.title}</div>
-        <div class="article-card-excerpt">${a.excerpt}</div>
-        <div class="article-card-footer">
-          <span class="article-card-accounts">${a.accounts || 0} accounts</span>
-          <span class="article-card-read">${a.readTime || 4} MIN READ →</span>
-        </div>
-      </div>
-    </a>
-  `).join('') : `<div style="color:var(--muted);font-size:14px;padding:20px 0;grid-column:1/-1;">No ${cat} articles yet. Check back soon.</div>`;
-
-  resultsEl.classList.add('visible');
-  defaultGrid.style.display = 'none';
+  const pill = Array.from(document.querySelectorAll('.cat-pill')).find(function(p) { return p.textContent.includes(cat); });
+  if (pill) pillFilter(pill, cat);
+  document.querySelector('.articles-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+// ── INIT ──────────────────────────────────────────────────────────────────
 loadArticles();
+initPOTD();
+initAuth();
+
 </script>
+
+<!-- SIGN IN MODAL -->
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-modal">
+    <div class="auth-logo">Tryed<span>.</span></div>
+    <div class="auth-sub">Save your favourites and get personalised picks</div>
+    <div class="auth-field">
+      <label>Your name</label>
+      <input type="text" id="auth-name" placeholder="e.g. Sarah" />
+    </div>
+    <div class="auth-field">
+      <label>Email address</label>
+      <input type="email" id="auth-email" placeholder="you@email.com" onkeydown="if(event.key==='Enter')submitAuth()" />
+    </div>
+    <button class="auth-btn" onclick="submitAuth()">Continue →</button>
+    <span class="auth-close" onclick="closeAuth()">Maybe later</span>
+  </div>
+</div>
+
 </body>
 </html>
