@@ -1,34 +1,38 @@
 [
   {
-    "slug": "the-best-skincare-routine-for-textured-skin",
-    "title": "The Best Skincare Routine for Textured Skin: A Comprehensive Guide",
-    "category": "Skincare",
-    "excerpt": "Discover the top products for textured skin, backed by research and real results.",
-    "emoji": "🧴",
-    "accounts": 47,
-    "readTime": 6,
-    "date": "2026-05-13"
-  },
-  {
-    "slug": "repairing-your-skin-barrier",
-    "title": "Repairing Your Skin Barrier: A Comprehensive Guide",
-    "category": "Skincare",
-    "excerpt": "Learn how to repair your skin barrier with our expert guide.",
-    "emoji": "ð§´",
-    "accounts": 47,
-    "readTime": 6,
-    "date": "2026-05-13"
-  },
-  {
     "slug": "best-oils-for-hair-growth-a-comprehensive-review",
     "title": "Best Oils for Hair Growth: A Comprehensive Review",
     "category": "Hair Growth",
-    "excerpt": "Discover the top hair growth oils backed by ingredient research â from rosemary to castor, ranked by effectiveness.",
-    "emoji": "ð¿",
+    "excerpt": "Discover the top hair growth oils backed by ingredient research — from rosemary to castor, ranked by effectiveness.",
+    "emoji": "🌿",
     "accounts": 47,
     "readTime": 6,
     "date": "2026-05-11",
     "bg": "#f0e6d3",
     "aiRating": "8.9"
+  },
+  {
+    "slug": "the-best-skincare-routine-for-textured-skin-real-user-accounts-and-product-revie",
+    "title": "The Best Skincare Routine for Textured Skin: Real User Accounts and Product Reviews",
+    "category": "Skincare",
+    "excerpt": "Discover the top products for textured skin, backed by research and real results.",
+    "emoji": "🧴",
+    "accounts": 47,
+    "readTime": 6,
+    "date": "2026-05-12",
+    "bg": "#e8eff5",
+    "aiRating": "8.8"
+  },
+  {
+    "slug": "repairing-your-skin-barrier-a-comprehensive-guide",
+    "title": "Repairing Your Skin Barrier: A Comprehensive Guide",
+    "category": "Skincare",
+    "excerpt": "Learn how to repair your skin barrier with our expert guide.",
+    "emoji": "🧴",
+    "accounts": 47,
+    "readTime": 6,
+    "date": "2026-05-12",
+    "bg": "#e8eff5",
+    "aiRating": "8.8"
   }
 ]
