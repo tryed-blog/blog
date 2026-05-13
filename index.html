@@ -859,6 +859,11 @@ footer { background: var(--ink); color: var(--cream); padding: 48px 40px; }
       <div class="cat-name">Baby & Kids</div>
       <div class="cat-count" id="count-baby">Loading...</div>
     </div>
+    <div class="cat-card" onclick="filterByCategory('Dental & Oral')" style="background:white;">
+      <div class="cat-icon" style="background:#e8f5fd;border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:24px;">🦷</div>
+      <div class="cat-name">Dental & Oral</div>
+      <div class="cat-count" id="count-dental">Loading...</div>
+    </div>
   </div>
 </section>
 
@@ -921,6 +926,7 @@ footer { background: var(--ink); color: var(--cream); padding: 48px 40px; }
     <div class="cat-pill" onclick="pillFilter(this,'Fragrance')">🌸 Fragrance</div>
     <div class="cat-pill" onclick="pillFilter(this,'Wellness')">🌱 Wellness</div>
     <div class="cat-pill" onclick="pillFilter(this,'Baby & Kids')">🍼 Baby & Kids</div>
+    <div class="cat-pill" onclick="pillFilter(this,'Dental & Oral')">🦷 Dental & Oral</div>
   </div>
   <div class="search-results" id="search-results">
     <div class="search-results-title">Results for "<span id="search-query-label"></span>"</div>
@@ -1209,7 +1215,7 @@ function initFeatured() {
 }
 
 function updateCounts() {
-  const cats = { 'Hair Growth':'count-hair-growth','Hair Care':'count-hair-care','Styling Tools':'count-styling','Makeup':'count-makeup','Skincare':'count-skincare','Body Care':'count-body-care','Fragrance':'count-fragrance','Wellness':'count-wellness','Baby & Kids':'count-baby' };
+  const cats = { 'Hair Growth':'count-hair-growth','Hair Care':'count-hair-care','Styling Tools':'count-styling','Makeup':'count-makeup','Skincare':'count-skincare','Body Care':'count-body-care','Fragrance':'count-fragrance','Wellness':'count-wellness','Baby & Kids':'count-baby','Dental & Oral':'count-dental' };
   for (const cat in cats) {
     const el = document.getElementById(cats[cat]);
     const count = allArticles.filter(function(a) { return a.category === cat; }).length;
@@ -1256,7 +1262,7 @@ function getCatBg(cat) {
     'Body Care': '#fef3e8',
     'Fragrance': '#f5eef8',
     'Wellness': '#eaf5ee',
-    'Baby & Kids': '#fef9e8'
+    'Baby & Kids': '#fef9e8', 'Dental & Oral': '#e8f5fd'
   };
   return map[cat] || '#f0e6d3';
 }
