@@ -1196,7 +1196,7 @@ function articleCard(a) {
   const rating = a.aiRating || (8.4 + (a.accounts || 47) % 10 * 0.06).toFixed(1);
   const isNew = a.date && (new Date() - new Date(a.date)) < 7 * 24 * 60 * 60 * 1000;
   return '<a href="articles/' + a.slug + '.html" class="article-card" style="text-decoration:none;">'
-    + '<div class="article-card-image" style="background:' + (a.bg || '#f0e6d3') + ';position:relative;">' + (a.emoji || '📄')
+    + '<div class="article-card-image" style="background:' + (a.bg || '#f0e6d3') + ';position:relative;">' + decodeEmoji(a.emoji)
     + (isNew ? '<span style="position:absolute;top:8px;right:8px;background:var(--accent);color:white;font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:100px;letter-spacing:0.08em;">NEW</span>' : '')
     + '</div>'
     + '<div class="article-card-body">'
@@ -1210,6 +1210,16 @@ function articleCard(a) {
     + '<span class="article-card-accounts">AI Research</span>'
     + '<span class="article-card-read">' + (a.readTime || 4) + ' MIN READ &rarr;</span>'
     + '</div></div></a>';
+}
+
+function decodeEmoji(str) {
+  if (!str) return '📄';
+  // Handle \uXXXX escape sequences stored as literal text
+  try {
+    return str.replace(/\\u([0-9a-fA-F]{4})/g, function(_, hex) {
+      return String.fromCharCode(parseInt(hex, 16));
+    });
+  } catch(e) { return str; }
 }
 
 function renderArticles(articles) {
