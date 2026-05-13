@@ -338,6 +338,7 @@ body {
 .categories-grid {
   display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
 }
+@media (min-width: 769px) { .categories-grid { grid-template-columns: repeat(5, 1fr); } }
 .cat-card {
   background: white; border: 1px solid var(--border);
   border-radius: 8px; padding: 20px 16px;
@@ -813,30 +814,50 @@ footer { background: var(--ink); color: var(--cream); padding: 48px 40px; }
     <div class="section-title">Browse by category</div>
   </div>
   <div class="categories-grid">
-    <div class="cat-card" onclick="filterByCategory('Hair Growth')">
-      <div class="cat-icon">🌿</div>
+    <div class="cat-card" onclick="filterByCategory('Hair Growth')" style="background:white;">
+      <div class="cat-icon" style="background:#f0e6d3;border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:24px;">🌿</div>
       <div class="cat-name">Hair Growth</div>
       <div class="cat-count" id="count-hair-growth">Loading...</div>
     </div>
-    <div class="cat-card" onclick="filterByCategory('Hair Care')">
-      <div class="cat-icon">💆</div>
+    <div class="cat-card" onclick="filterByCategory('Hair Care')" style="background:white;">
+      <div class="cat-icon" style="background:#e8f0e6;border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:24px;">💆</div>
       <div class="cat-name">Hair Care</div>
       <div class="cat-count" id="count-hair-care">Loading...</div>
     </div>
-    <div class="cat-card" onclick="filterByCategory('Styling Tools')">
-      <div class="cat-icon">✨</div>
+    <div class="cat-card" onclick="filterByCategory('Styling Tools')" style="background:white;">
+      <div class="cat-icon" style="background:#f0ecf5;border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:24px;">✨</div>
       <div class="cat-name">Styling Tools</div>
       <div class="cat-count" id="count-styling">Loading...</div>
     </div>
-    <div class="cat-card" onclick="filterByCategory('Makeup')">
-      <div class="cat-icon">💄</div>
+    <div class="cat-card" onclick="filterByCategory('Makeup')" style="background:white;">
+      <div class="cat-icon" style="background:#f5e8ec;border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:24px;">💄</div>
       <div class="cat-name">Makeup</div>
       <div class="cat-count" id="count-makeup">Loading...</div>
     </div>
-    <div class="cat-card" onclick="filterByCategory('Skincare')">
-      <div class="cat-icon">🧴</div>
+    <div class="cat-card" onclick="filterByCategory('Skincare')" style="background:white;">
+      <div class="cat-icon" style="background:#e8eff5;border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:24px;">🧴</div>
       <div class="cat-name">Skincare</div>
       <div class="cat-count" id="count-skincare">Loading...</div>
+    </div>
+    <div class="cat-card" onclick="filterByCategory('Body Care')" style="background:white;">
+      <div class="cat-icon" style="background:#fef3e8;border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:24px;">🛁</div>
+      <div class="cat-name">Body Care</div>
+      <div class="cat-count" id="count-body-care">Loading...</div>
+    </div>
+    <div class="cat-card" onclick="filterByCategory('Fragrance')" style="background:white;">
+      <div class="cat-icon" style="background:#f5eef8;border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:24px;">🌸</div>
+      <div class="cat-name">Fragrance</div>
+      <div class="cat-count" id="count-fragrance">Loading...</div>
+    </div>
+    <div class="cat-card" onclick="filterByCategory('Wellness')" style="background:white;">
+      <div class="cat-icon" style="background:#eaf5ee;border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:24px;">🌱</div>
+      <div class="cat-name">Wellness</div>
+      <div class="cat-count" id="count-wellness">Loading...</div>
+    </div>
+    <div class="cat-card" onclick="filterByCategory('Baby & Kids')" style="background:white;">
+      <div class="cat-icon" style="background:#fef9e8;border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:24px;">🍼</div>
+      <div class="cat-name">Baby & Kids</div>
+      <div class="cat-count" id="count-baby">Loading...</div>
     </div>
   </div>
 </section>
@@ -889,13 +910,17 @@ footer { background: var(--ink); color: var(--cream); padding: 48px 40px; }
     <div class="section-title">Latest articles</div>
     <a href="#" class="section-link" onclick="resetFilter()">VIEW ALL →</a>
   </div>
-  <div class="cat-pills" id="cat-pills">
+  <div class="cat-pills" id="cat-pills" style="overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;padding-bottom:4px;">
     <div class="cat-pill active" onclick="pillFilter(this,'all')">All</div>
     <div class="cat-pill" onclick="pillFilter(this,'Hair Growth')">🌿 Hair Growth</div>
     <div class="cat-pill" onclick="pillFilter(this,'Hair Care')">💆 Hair Care</div>
     <div class="cat-pill" onclick="pillFilter(this,'Skincare')">🧴 Skincare</div>
     <div class="cat-pill" onclick="pillFilter(this,'Makeup')">💄 Makeup</div>
     <div class="cat-pill" onclick="pillFilter(this,'Styling Tools')">✨ Styling</div>
+    <div class="cat-pill" onclick="pillFilter(this,'Body Care')">🛁 Body Care</div>
+    <div class="cat-pill" onclick="pillFilter(this,'Fragrance')">🌸 Fragrance</div>
+    <div class="cat-pill" onclick="pillFilter(this,'Wellness')">🌱 Wellness</div>
+    <div class="cat-pill" onclick="pillFilter(this,'Baby & Kids')">🍼 Baby & Kids</div>
   </div>
   <div class="search-results" id="search-results">
     <div class="search-results-title">Results for "<span id="search-query-label"></span>"</div>
@@ -1184,7 +1209,7 @@ function initFeatured() {
 }
 
 function updateCounts() {
-  const cats = { 'Hair Growth':'count-hair-growth','Hair Care':'count-hair-care','Styling Tools':'count-styling','Makeup':'count-makeup','Skincare':'count-skincare' };
+  const cats = { 'Hair Growth':'count-hair-growth','Hair Care':'count-hair-care','Styling Tools':'count-styling','Makeup':'count-makeup','Skincare':'count-skincare','Body Care':'count-body-care','Fragrance':'count-fragrance','Wellness':'count-wellness','Baby & Kids':'count-baby' };
   for (const cat in cats) {
     const el = document.getElementById(cats[cat]);
     const count = allArticles.filter(function(a) { return a.category === cat; }).length;
@@ -1196,7 +1221,7 @@ function articleCard(a) {
   const rating = a.aiRating || (8.4 + (a.accounts || 47) % 10 * 0.06).toFixed(1);
   const isNew = a.date && (new Date() - new Date(a.date)) < 7 * 24 * 60 * 60 * 1000;
   return '<a href="articles/' + a.slug + '.html" class="article-card" style="text-decoration:none;">'
-    + '<div class="article-card-image" style="background:' + (a.bg || '#f0e6d3') + ';position:relative;">' + decodeEmoji(a.emoji)
+    + '<div class="article-card-image" style="background:' + getCatBg(a.category) + ';position:relative;">' + decodeEmoji(a.emoji)
     + (isNew ? '<span style="position:absolute;top:8px;right:8px;background:var(--accent);color:white;font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:100px;letter-spacing:0.08em;">NEW</span>' : '')
     + '</div>'
     + '<div class="article-card-body">'
@@ -1214,12 +1239,26 @@ function articleCard(a) {
 
 function decodeEmoji(str) {
   if (!str) return '📄';
-  // Handle \uXXXX escape sequences stored as literal text
   try {
     return str.replace(/\\u([0-9a-fA-F]{4})/g, function(_, hex) {
       return String.fromCharCode(parseInt(hex, 16));
     });
   } catch(e) { return str; }
+}
+
+function getCatBg(cat) {
+  var map = {
+    'Hair Growth': '#f0e6d3',
+    'Hair Care': '#e8f0e6',
+    'Styling Tools': '#f0ecf5',
+    'Makeup': '#f5e8ec',
+    'Skincare': '#e8eff5',
+    'Body Care': '#fef3e8',
+    'Fragrance': '#f5eef8',
+    'Wellness': '#eaf5ee',
+    'Baby & Kids': '#fef9e8'
+  };
+  return map[cat] || '#f0e6d3';
 }
 
 function renderArticles(articles) {
