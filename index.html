@@ -506,37 +506,57 @@ footer { background: var(--ink); color: var(--cream); padding: 48px 40px; }
   .share-bar-inner { flex-wrap: nowrap; }
 }
 
-/* ── CARD SHUFFLE ANIMATION ──────────────────────────── */
-@keyframes card1Shuffle {
-  0%   { transform: rotate(-2deg) translate(0,0); }
-  15%  { transform: rotate(-18deg) translate(-60px, 20px) scale(0.95); }
-  35%  { transform: rotate(12deg) translate(80px, -30px) scale(1.05); }
-  55%  { transform: rotate(-8deg) translate(-20px, 40px) scale(0.98); }
-  75%  { transform: rotate(5deg) translate(30px, -10px); }
-  90%  { transform: rotate(-3deg) translate(-5px, 5px); }
-  100% { transform: rotate(-2deg) translate(0,0); }
+/* ── CARD FLY-IN + SPLIT ANIMATION ──────────────────── */
+.hero-card-stack { perspective: 1400px; transform-style: preserve-3d; }
+
+/* Each card does the full journey in one smooth keyframe:
+   fly in from off-screen right as a group, arc away from viewer,
+   curve back in, then glide to their final resting position */
+
+@keyframes card1Journey {
+  0%   { opacity:0; transform: translateX(500px) translateY(60px) translateZ(-300px) rotateY(-40deg) rotateZ(20deg) scale(0.25); }
+  8%   { opacity:1; }
+  35%  { transform: translateX(80px) translateY(-80px) translateZ(-700px) rotateY(-20deg) rotateZ(8deg) scale(0.55); }
+  60%  { transform: translateX(-20px) translateY(20px) translateZ(-100px) rotateY(-5deg) rotateZ(-1deg) scale(0.95); }
+  75%  { transform: translateX(8px) translateY(-4px) translateZ(0px) rotateY(0deg) rotateZ(-2.5deg) scale(1.01); }
+  88%  { transform: translateX(-4px) translateY(2px) rotateZ(-2deg) scale(0.99); }
+  100% { opacity:1; transform: translateX(0px) translateY(0px) translateZ(0px) rotateZ(-2deg) scale(1); }
 }
-@keyframes card2Shuffle {
-  0%   { transform: rotate(1.5deg) translate(0,0); z-index:2; }
-  15%  { transform: rotate(20deg) translate(70px, -40px) scale(1.08); z-index:4; }
-  35%  { transform: rotate(-15deg) translate(-80px, 30px) scale(0.92); z-index:4; }
-  55%  { transform: rotate(10deg) translate(50px, 20px) scale(1.03); z-index:4; }
-  75%  { transform: rotate(3deg) translate(10px, -5px); z-index:2; }
-  90%  { transform: rotate(2deg) translate(2px, 2px); z-index:2; }
-  100% { transform: rotate(1.5deg) translate(0,0); z-index:2; }
+
+@keyframes card2Journey {
+  0%   { opacity:0; transform: translateX(500px) translateY(60px) translateZ(-300px) rotateY(-40deg) rotateZ(20deg) scale(0.25); }
+  8%   { opacity:1; }
+  35%  { transform: translateX(80px) translateY(-80px) translateZ(-700px) rotateY(-20deg) rotateZ(8deg) scale(0.55); }
+  60%  { transform: translateX(-20px) translateY(20px) translateZ(-100px) rotateY(-5deg) rotateZ(-1deg) scale(0.95); }
+  72%  { transform: translateX(8px) translateY(-4px) translateZ(0px) rotateZ(0deg) scale(1.01); }
+  85%  { transform: translateX(90px) translateY(85px) rotateZ(2deg) scale(1.02); }
+  93%  { transform: translateX(76px) translateY(77px) rotateZ(1.3deg) scale(0.99); }
+  100% { opacity:1; transform: translateX(80px) translateY(80px) rotateZ(1.5deg) scale(1); }
 }
-@keyframes card3Shuffle {
-  0%   { transform: rotate(-1deg) translate(0,0); z-index:1; }
-  15%  { transform: rotate(8deg) translate(-40px, 50px) scale(0.9); z-index:3; }
-  35%  { transform: rotate(-20deg) translate(60px, -50px) scale(1.06); z-index:3; }
-  55%  { transform: rotate(15deg) translate(-30px, -20px) scale(0.96); z-index:3; }
-  75%  { transform: rotate(-2deg) translate(5px, 8px); z-index:1; }
-  90%  { transform: rotate(-1.5deg) translate(1px, 2px); z-index:1; }
-  100% { transform: rotate(-1deg) translate(0,0); z-index:1; }
+
+@keyframes card3Journey {
+  0%   { opacity:0; transform: translateX(500px) translateY(60px) translateZ(-300px) rotateY(-40deg) rotateZ(20deg) scale(0.25); }
+  8%   { opacity:1; }
+  35%  { transform: translateX(80px) translateY(-80px) translateZ(-700px) rotateY(-20deg) rotateZ(8deg) scale(0.55); }
+  60%  { transform: translateX(-20px) translateY(20px) translateZ(-100px) rotateY(-5deg) rotateZ(-1deg) scale(0.95); }
+  72%  { transform: translateX(8px) translateY(-4px) translateZ(0px) rotateZ(0deg) scale(1.01); }
+  85%  { transform: translateX(175px) translateY(38px) rotateZ(-1.5deg) scale(1.02); }
+  93%  { transform: translateX(157px) translateY(27px) rotateZ(-0.8deg) scale(0.99); }
+  100% { opacity:1; transform: translateX(160px) translateY(30px) rotateZ(-1deg) scale(1); }
 }
-.shuffle-active .hero-card:nth-child(1) { animation: card1Shuffle 4s cubic-bezier(0.4,0,0.2,1) forwards; }
-.shuffle-active .hero-card:nth-child(2) { animation: card2Shuffle 4s cubic-bezier(0.4,0,0.2,1) forwards; animation-delay: 0.08s; }
-.shuffle-active .hero-card:nth-child(3) { animation: card3Shuffle 4s cubic-bezier(0.4,0,0.2,1) forwards; animation-delay: 0.16s; }
+
+.do-fly .hero-card:nth-child(1) {
+  animation: card1Journey 2.4s cubic-bezier(0.16,1,0.3,1) forwards;
+  opacity: 0;
+}
+.do-fly .hero-card:nth-child(2) {
+  animation: card2Journey 2.6s cubic-bezier(0.16,1,0.3,1) forwards;
+  opacity: 0;
+}
+.do-fly .hero-card:nth-child(3) {
+  animation: card3Journey 2.5s cubic-bezier(0.16,1,0.3,1) forwards;
+  opacity: 0;
+}
 
 /* ── SIGN IN MODAL ───────────────────────────────────── */
 .auth-overlay {
@@ -674,10 +694,10 @@ footer { background: var(--ink); color: var(--cream); padding: 48px 40px; }
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <div class="hero-eyebrow">AI-researched · Affiliate independent</div>
+    <div class="hero-eyebrow">AI-researched · Best Products</div>
     <div class="hero-ticker"><span class="ticker-num" id="reader-count">0</span><span>readers this month</span></div>
     <h1 class="hero-title">Find products that <em>actually</em> work</h1>
-    <p class="hero-sub">We research and summarise the best beauty and hair products — no sponsorships, no fluff. Just honest AI-powered analysis of what actually delivers.</p>
+    <p class="hero-sub">We research and summarise the best beauty and hair products — no bias, no bs. Just honest AI-powered analysis of what actually delivers.</p>
     <div class="hero-search">
       <input type="text" id="hero-search-inp" placeholder="What are you looking for? e.g. hair growth serum..." oninput="handleSearch(this.value)" />
       <button onclick="handleSearch(document.getElementById('hero-search-inp').value)">Search</button>
@@ -970,16 +990,39 @@ window.addEventListener('scroll', function() {
   el.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
 });
 
-// ── CARD SHUFFLE ANIMATION ────────────────────────────────────────────────
+// ── CARD FLY-IN ANIMATION ─────────────────────────────────────────────────
 window.addEventListener('load', function() {
-  const stack = document.querySelector('.hero-card-stack');
+  var stack = document.querySelector('.hero-card-stack');
   if (!stack) return;
+
+  // Override CSS-positioned cards so they all start at same origin
+  var cards = stack.querySelectorAll('.hero-card');
+  cards.forEach(function(card) {
+    card.style.position = 'absolute';
+    card.style.top = '0';
+    card.style.left = '40px';
+  });
+
+  // Kick off the single continuous animation per card
   setTimeout(function() {
-    stack.classList.add('shuffle-active');
+    stack.classList.add('do-fly');
+    // After animation ends, lock in final CSS positions cleanly
     setTimeout(function() {
-      stack.classList.remove('shuffle-active');
-    }, 4200);
-  }, 600);
+      stack.classList.remove('do-fly');
+      var defs = [
+        { top:'0px',   left:'40px',  transform:'rotate(-2deg)',  zIndex:'1' },
+        { top:'80px',  left:'100px', transform:'rotate(1.5deg)', zIndex:'2' },
+        { top:'30px',  left:'200px', transform:'rotate(-1deg)',  zIndex:'1' }
+      ];
+      cards.forEach(function(card, i) {
+        card.style.top       = defs[i].top;
+        card.style.left      = defs[i].left;
+        card.style.transform = defs[i].transform;
+        card.style.zIndex    = defs[i].zIndex;
+        card.style.opacity   = '1';
+      });
+    }, 2700);
+  }, 400);
 });
 
 // ── READER COUNT TICKER ───────────────────────────────────────────────────
@@ -1341,4 +1384,3 @@ initAuth();
 </div>
 
 </body>
-</html>
