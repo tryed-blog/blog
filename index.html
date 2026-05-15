@@ -694,10 +694,10 @@ footer { background: var(--ink); color: var(--cream); padding: 48px 40px; }
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <div class="hero-eyebrow">AI-researched · Best Products</div>
+    <div class="hero-eyebrow">AI-researched · Affiliate independent</div>
     <div class="hero-ticker"><span class="ticker-num" id="reader-count">0</span><span>readers this month</span></div>
     <h1 class="hero-title">Find products that <em>actually</em> work</h1>
-    <p class="hero-sub">We research and summarise the best beauty and hair products — no bias, no bs. Just honest AI-powered analysis of what actually delivers.</p>
+    <p class="hero-sub">We research and summarise the best beauty and hair products — no sponsorships, no fluff. Just honest AI-powered analysis of what actually delivers.</p>
     <div class="hero-search">
       <input type="text" id="hero-search-inp" placeholder="What are you looking for? e.g. hair growth serum..." oninput="handleSearch(this.value)" />
       <button onclick="handleSearch(document.getElementById('hero-search-inp').value)">Search</button>
@@ -1286,10 +1286,31 @@ function articleCard(a) {
 function decodeEmoji(str) {
   if (!str) return '📄';
   try {
-    return str.replace(/\\u([0-9a-fA-F]{4})/g, function(_, hex) {
+    // Handle \uXXXX literal escape sequences
+    var decoded = str.replace(/\\u([0-9a-fA-F]{4})/gi, function(_, hex) {
       return String.fromCharCode(parseInt(hex, 16));
     });
-  } catch(e) { return str; }
+    // Handle surrogate pairs \uD83C\uDF3F style
+    decoded = decoded.replace(/\uD[89AB][0-9A-F]{2}\uD[C-F][0-9A-F]{2}/gi, function(pair) {
+      var hi = pair.charCodeAt(0);
+      var lo = pair.charCodeAt(1);
+      var cp = 0x10000 + (hi - 0xD800) * 0x400 + (lo - 0xDC00);
+      return String.fromCodePoint(cp);
+    });
+    // Detect and fix UTF-8 bytes misread as Latin-1
+    // e.g. ð (0xF0) followed by Ÿ (0x9F) etc
+    if (/[\xC0-\xFF][\x80-\xBF]/.test(decoded) || decoded.charCodeAt(0) > 0xC0) {
+      try {
+        var bytes = [];
+        for (var i = 0; i < decoded.length; i++) {
+          bytes.push(decoded.charCodeAt(i) & 0xFF);
+        }
+        var fixed = new TextDecoder('utf-8').decode(new Uint8Array(bytes));
+        if (fixed && fixed.length < decoded.length) return fixed;
+      } catch(te) {}
+    }
+    return decoded;
+  } catch(e) { return str || '📄'; }
 }
 
 function getCatBg(cat) {
@@ -1384,3 +1405,4 @@ initAuth();
 </div>
 
 </body>
+</html>
