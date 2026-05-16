@@ -678,7 +678,8 @@ footer { background: var(--ink); color: var(--cream); padding: 48px 40px; }
     <a href="index.html" class="logo">Tryed<span>.</span></a>
     <nav class="nav">
       <a href="index.html" style="font-weight:500;">Home</a>
-      <a href="quiz.html" style="color:var(--accent);font-weight:500;">✦ Quiz</a>
+      <a href="quiz.html" style="color:var(--accent);font-weight:500;">&#10022; Quiz</a>
+      <a href="wishlist.html" id="nav-wishlist" style="font-size:13px;color:var(--ink2);text-decoration:none;display:flex;align-items:center;gap:5px;">&#9825; Wishlist<span id="wl-count" style="display:none;background:var(--accent);color:white;font-family:var(--mono);font-size:9px;padding:1px 6px;border-radius:100px;"></span></a>
       <div id="nav-auth-btn" onclick="openAuth()" style="display:flex;align-items:center;gap:8px;cursor:pointer;padding:6px 14px;border:1px solid var(--border);border-radius:100px;font-size:12px;color:var(--ink2);transition:all .15s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--ink2)'">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         <span id="nav-auth-label">Sign in</span>
@@ -1251,7 +1252,7 @@ function initFeatured() {
   const tagEl = featuredSection.querySelector('.featured-tag');
   if (tagEl) tagEl.textContent = featured.category || '';
   const emojiEl = featuredSection.querySelector('.featured-image-emoji');
-  if (emojiEl) emojiEl.textContent = featured.emoji || '📄';
+  if (emojiEl) emojiEl.textContent = getCatEmoji(featured.category);
 }
 
 function updateCounts() {
@@ -1267,7 +1268,7 @@ function articleCard(a) {
   const rating = a.aiRating || (8.4 + (a.accounts || 47) % 10 * 0.06).toFixed(1);
   const isNew = a.date && (new Date() - new Date(a.date)) < 7 * 24 * 60 * 60 * 1000;
   return '<a href="articles/' + a.slug + '.html" class="article-card" style="text-decoration:none;">'
-    + '<div class="article-card-image" style="background:' + getCatBg(a.category) + ';position:relative;">' + decodeEmoji(a.emoji)
+    + '<div class="article-card-image" style="background:' + getCatBg(a.category) + ';position:relative;">' + getCatEmoji(a.category)
     + (isNew ? '<span style="position:absolute;top:8px;right:8px;background:var(--accent);color:white;font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:100px;letter-spacing:0.08em;">NEW</span>' : '')
     + '</div>'
     + '<div class="article-card-body">'
@@ -1311,6 +1312,16 @@ function decodeEmoji(str) {
     }
     return decoded;
   } catch(e) { return str || '📄'; }
+}
+
+function getCatEmoji(cat) {
+  var map = {
+    'Hair Growth': '🌿', 'Hair Care': '💆', 'Styling Tools': '✨',
+    'Makeup': '💄', 'Skincare': '🧴', 'Body Care': '🛁',
+    'Fragrance': '🌸', 'Wellness': '🌱', 'Baby & Kids': '🍼',
+    'Dental & Oral': '🦷'
+  };
+  return map[cat] || '📄';
 }
 
 function getCatBg(cat) {
@@ -1383,6 +1394,18 @@ function filterByCategory(cat) {
 loadArticles();
 initPOTD();
 initAuth();
+// Wishlist count badge
+(function(){
+  try {
+    var wl = JSON.parse(localStorage.getItem("tryed_wishlist") || "[]");
+    if (wl.length) {
+      var badge = document.getElementById("wl-count");
+      var link = document.getElementById("nav-wishlist");
+      if (badge) { badge.textContent = wl.length; badge.style.display = "inline"; }
+      if (link) { link.innerHTML = link.innerHTML.replace("&#9825;", "&#9829;"); }
+    }
+  } catch(e) {}
+})();
 
 </script>
 
