@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Wishlist — Tryed</title>
+<meta name="description" content="Your saved products from Tryed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="/blog/favicon.ico">
+<style>
+:root{--cream:#f5f0e8;--cream2:#ede7d9;--ink:#1a1612;--ink2:#3d3630;--muted:#8c8278;--accent:#c4622d;--accent2:#a34e22;--green:#4a7c59;--border:#d9d0c0;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',sans-serif;--mono:'DM Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;min-height:100vh;}
+.site-header{border-bottom:1px solid var(--border);padding:0 40px;background:var(--cream);position:sticky;top:0;z-index:100;}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--ink);text-decoration:none;}
+.logo span{color:var(--accent);}
+.nav{display:flex;gap:24px;align-items:center;}
+.nav a{font-size:13px;color:var(--ink2);text-decoration:none;transition:color .15s;}
+.nav a:hover{color:var(--accent);}
+.wrap{max-width:1200px;margin:0 auto;padding:60px 40px 100px;}
+.page-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:16px;}
+.page-title{font-family:var(--serif);font-size:40px;font-weight:700;color:var(--ink);letter-spacing:-0.5px;}
+.page-title span{color:var(--accent);}
+.header-actions{display:flex;align-items:center;gap:12px;}
+.sort-select{font-family:var(--mono);font-size:11px;color:var(--muted);border:1px solid var(--border);background:white;padding:7px 12px;border-radius:6px;outline:none;cursor:pointer;}
+.share-wl-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:100px;border:1px solid var(--border);background:white;color:var(--ink2);font-family:var(--mono);font-size:11px;cursor:pointer;transition:all .15s;}
+.share-wl-btn:hover{border-color:var(--accent);color:var(--accent);}
+.clear-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:100px;border:1px solid var(--border);background:white;color:var(--muted);font-family:var(--mono);font-size:11px;cursor:pointer;transition:all .15s;}
+.clear-btn:hover{border-color:#dc2626;color:#dc2626;}
+.wishlist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.wl-card{background:white;border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .2s;display:flex;flex-direction:column;}
+.wl-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,0.09);border-color:var(--accent);}
+.wl-card-top{padding:20px 20px 0;}
+.wl-cat{font-family:var(--mono);font-size:9px;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;}
+.wl-name{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:10px;}
+.wl-stars{display:flex;gap:3px;margin-bottom:10px;}
+.wl-star{font-size:16px;color:rgba(196,98,45,0.2);}
+.wl-star.lit{color:#f4c542;}
+.wl-price{font-family:var(--mono);font-size:18px;color:var(--accent);font-weight:500;margin-bottom:16px;}
+.wl-date{font-family:var(--mono);font-size:10px;color:var(--muted);}
+.wl-card-actions{padding:16px 20px;border-top:1px solid var(--border);display:flex;gap:8px;margin-top:auto;}
+.wl-buy-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px;background:var(--ink);color:var(--cream);font-family:var(--sans);font-size:12px;font-weight:500;border-radius:6px;text-decoration:none;transition:background .15s;}
+.wl-buy-btn:hover{background:var(--accent);}
+.wl-remove-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:6px;border:1px solid var(--border);background:white;color:var(--muted);cursor:pointer;transition:all .15s;font-size:16px;}
+.wl-remove-btn:hover{border-color:#dc2626;color:#dc2626;}
+.empty-state{text-align:center;padding:100px 40px;}
+.empty-icon{font-size:64px;margin-bottom:20px;}
+.empty-title{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--ink);margin-bottom:12px;}
+.empty-desc{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:32px;max-width:420px;margin-left:auto;margin-right:auto;}
+.empty-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--ink);color:var(--cream);font-family:var(--sans);font-size:14px;font-weight:500;border-radius:6px;text-decoration:none;transition:background .15s;}
+.empty-btn:hover{background:var(--accent);}
+.count-label{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:24px;}
+footer{background:var(--ink);padding:32px 40px;text-align:center;margin-top:80px;}
+.footer-logo{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--cream);}
+.footer-logo span{color:var(--accent);}
+@media(max-width:900px){.wishlist-grid{grid-template-columns:repeat(2,1fr);}.wrap{padding:40px 20px 80px;}.site-header{padding:0 20px;}.page-title{font-size:28px;}}
+@media(max-width:600px){.wishlist-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Tryed<span>.</span></a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="quiz.html">&#10022; Quiz</a>
+      <a href="wishlist.html" style="color:var(--accent);font-weight:500;">&#9829; Wishlist</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">My <span>Wishlist</span></h1>
+      <div class="count-label" id="count-label">Loading...</div>
+    </div>
+    <div class="header-actions">
+      <select class="sort-select" id="sort-select" onchange="renderWishlist()">
+        <option value="date">Recently added</option>
+        <option value="rating">Highest rated</option>
+        <option value="price_asc">Price: low to high</option>
+        <option value="price_desc">Price: high to low</option>
+      </select>
+      <button class="share-wl-btn" onclick="shareWishlist()">&#128279; Share</button>
+      <button class="clear-btn" onclick="clearWishlist()">&#10006; Clear all</button>
+    </div>
+  </div>
+
+  <div id="wishlist-container"></div>
+</div>
+
+<footer>
+  <div class="footer-logo">Tryed<span>.</span></div>
+</footer>
+
+<script>
+var WL_KEY = 'tryed_wishlist';
+var CAT_BG = {'Hair Growth':'#f0e6d3','Hair Care':'#e8f0e6','Styling Tools':'#f0ecf5','Makeup':'#f5e8ec','Skincare':'#e8eff5','Body Care':'#fef3e8','Fragrance':'#f5eef8','Wellness':'#eaf5ee','Baby & Kids':'#fef9e8','Dental & Oral':'#e8f5fd'};
+
+function getWL() {
+  try { return JSON.parse(localStorage.getItem(WL_KEY) || '[]'); } catch(e) { return []; }
+}
+
+function saveWL(wl) {
+  localStorage.setItem(WL_KEY, JSON.stringify(wl));
+}
+
+function removeItem(asin) {
+  var wl = getWL().filter(function(p) { return p.asin !== asin; });
+  saveWL(wl);
+  renderWishlist();
+}
+
+function clearWishlist() {
+  if (!confirm('Remove all saved products?')) return;
+  saveWL([]);
+  renderWishlist();
+}
+
+function shareWishlist() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    alert('Wishlist link copied! Note: wishlists are saved locally and won\'t be visible to others.');
+  });
+}
+
+function parsePrice(str) {
+  if (!str) return 0;
+  return parseFloat(String(str).replace(/[^0-9.]/g, '')) || 0;
+}
+
+function renderWishlist() {
+  var wl = getWL();
+  var sort = document.getElementById('sort-select').value;
+  var container = document.getElementById('wishlist-container');
+  var countLabel = document.getElementById('count-label');
+
+  countLabel.textContent = wl.length + ' saved product' + (wl.length !== 1 ? 's' : '');
+
+  if (!wl.length) {
+    container.innerHTML = '<div class="empty-state">'
+      + '<div class="empty-icon">&#9825;</div>'
+      + '<div class="empty-title">Your wishlist is empty</div>'
+      + '<p class="empty-desc">Browse articles and tap Save on any product to add it here.</p>'
+      + '<a href="index.html" class="empty-btn">Browse articles &#8594;</a>'
+      + '</div>';
+    return;
+  }
+
+  var sorted = wl.slice().sort(function(a, b) {
+    if (sort === 'rating') return (b.rating || 0) - (a.rating || 0);
+    if (sort === 'price_asc') return parsePrice(a.price) - parsePrice(b.price);
+    if (sort === 'price_desc') return parsePrice(b.price) - parsePrice(a.price);
+    return new Date(b.date) - new Date(a.date);
+  });
+
+  container.innerHTML = '<div class="wishlist-grid">'
+    + sorted.map(function(p) {
+      var stars = '';
+      for (var i = 1; i <= 5; i++) {
+        stars += '<span class="wl-star' + (p.rating >= i ? ' lit' : '') + '">&#9733;</span>';
+      }
+      var dateStr = p.date ? new Date(p.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+      return '<div class="wl-card">'
+        + '<div class="wl-card-top">'
+        + (p.category ? '<div class="wl-cat">' + p.category + '</div>' : '')
+        + '<div class="wl-name">' + (p.name || 'Product') + '</div>'
+        + '<div class="wl-stars">' + stars + '</div>'
+        + (p.price ? '<div class="wl-price">' + p.price + '</div>' : '')
+        + (dateStr ? '<div class="wl-date">Saved ' + dateStr + '</div>' : '')
+        + '</div>'
+        + '<div class="wl-card-actions">'
+        + '<a href="' + (p.url || '#') + '" target="_blank" rel="nofollow" class="wl-buy-btn">View on Amazon &#8594;</a>'
+        + '<button class="wl-remove-btn" onclick="removeItem(\'' + p.asin + '\')" title="Remove">&#10006;</button>'
+        + '</div>'
+        + '</div>';
+    }).join('')
+    + '</div>';
+}
+
+renderWishlist();
+</script>
+</body>
+</html>
